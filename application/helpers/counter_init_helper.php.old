@@ -1,0 +1,23 @@
+<?php defined('BASEPATH') OR exit('No direct script access allowed.');
+
+if ( ! function_exists('counter_init')) 
+
+{
+
+    function counter_init()
+    {
+
+       $filecounter=(APPPATH . '/counter.txt');
+        $kunjungan=file($filecounter);
+
+        $file=fopen($filecounter, 'w');
+        fputs($file, '0');
+        fclose($file);
+        return ;
+    }
+
+
+}
+
+
+

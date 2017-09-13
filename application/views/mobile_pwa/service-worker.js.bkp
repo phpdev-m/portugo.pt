@@ -1,0 +1,129 @@
+/*
+*
+*  Push Notifications codelab
+*  Copyright 2015 Google Inc. All rights reserved.
+*
+*  Licensed under the Apache License, Version 2.0 (the "License");
+*  you may not use this file except in compliance with the License.
+*  You may obtain a copy of the License at
+*
+*      https://www.apache.org/licenses/LICENSE-2.0
+*
+*  Unless required by applicable law or agreed to in writing, software
+*  distributed under the License is distributed on an "AS IS" BASIS,
+*  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+*  See the License for the specific language governing permissions and
+*  limitations under the License
+*
+*/
+
+/* eslint-env browser, serviceworker, es6 */
+
+'use strict';
+
+self.addEventListener('push', function(event) {
+  console.log('[Service Worker] Push Received.');
+  console.log(`[Service Worker] Push had this data: "${event.data.text()}"`);
+
+  const title = 'Push Codelab';
+  const options = {
+    body: 'Yay it works.',
+    icon: 'push/icon.png',
+    badge: 'push/badge.png'
+    
+  };
+
+  event.waitUntil(self.registration.showNotification(title, options));
+});
+
+
+self.addEventListener('notificationclick', function(event) {
+  console.log('[Service Worker] Notification click Received.');
+
+  event.notification.close();
+
+  event.waitUntil(
+    clients.openWindow('http://portugo.pt/application/views/mobile_pwa/push/index.html')
+  );
+})
+
+
+
+
+
+
+var dataCacheName = 'PortugoCache';
+var cacheName = 'PortugoCache';
+
+var filesToCache = [
+'/',
+  '/application/views/mobile_pwa/index.html',
+  '/application/views/mobile_pwa/index.html?homescreen=1',
+  '/application/views/mobile_pwa/?homescreen=1',
+  '/application/views/mobile_pwa/scripts/app.js',
+  '/application/views/mobile_pwa/public/images/logoportugo.png',
+  '/application/views/mobile_pwa/public/front/css/dd.css',
+  '/application/views/mobile_pwa/public/images/icon-152x152.png',
+  '/application/views/mobile_pwa/public/images/icon-144x144.png',
+  '/application/views/mobile_pwa/push/icon.png',
+  '/application/views/mobile_pwa/push/badge.png', 
+  '/application/views/mobile_pwa/public/front/js/jquery.min.js',
+  '/application/views/mobile_pwa/public/front/css/bootstrap.min.css',
+  '/application/views/mobile_pwa/public/front/css/font-awesome.min.css',
+  '/application/views/mobile_pwa/public/front/css/style.css',
+  '/application/views/mobile_pwa/public/front/css/font.css',
+  '/application/views/mobile_pwa/public/front/css/new_css.css',
+  '/application/views/mobile_pwa/public/front/css/jquery-ui.css',
+   '/application/views/mobile_pwa/public/front/js/bootstrap.min.js',
+   '/application/views/mobile_pwa/public/front/js/jquery.dd.js',
+   '/application/views/mobile_pwa/public/front/js/jquery.geocomplete.js',
+   '/application/views/mobile_pwa/public/front/js/logger.js',
+   '/application/views/mobile_pwa/scripts/app.js'
+];
+
+
+
+
+self.addEventListener('install', function(e) {
+  console.log('[ServiceWorker] Install');
+  e.waitUntil(
+    caches.open(cacheName).then(function(cache) {
+      console.log('[ServiceWorker] Caching app shell');
+      return cache.addAll(filesToCache);
+    })
+  );
+});
+
+self.addEventListener('activate', function(e) {
+  console.log('[ServiceWorker] Activate');
+  e.waitUntil(
+    caches.keys().then(function(keyList) {
+      return Promise.all(keyList.map(function(key) {
+        if (key !== cacheName) {
+          console.log('[ServiceWorker] Removing old cache', key);
+          return caches.delete(key);
+        }
+      }));
+    })
+  );
+  return self.clients.claim();
+});
+
+
+self.addEventListener('fetch', function(event) {
+  event.respondWith(
+    caches.match(event.request)
+      .then(function(response) {
+        // Cache hit - return response
+        if (response) {
+          return response;
+        }
+        return fetch(event.request);
+      }
+    )
+  );
+});
+
+
+
+

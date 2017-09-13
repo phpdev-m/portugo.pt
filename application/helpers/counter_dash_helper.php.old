@@ -1,0 +1,18 @@
+<?php defined('BASEPATH') OR exit('No direct script access allowed.');
+
+
+if ( ! function_exists('count_dashboard')) 
+{
+    function count_dashboard()
+    {
+
+       $filecounter=(APPPATH . '/counter.txt');
+       $counterdash=  file($filecounter);
+       $file=fopen($filecounter, 'r');
+       fgets($file, $counterdash[0]);
+       fclose($file);
+       return $counterdash[0];
+    }
+
+
+}

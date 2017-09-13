@@ -1,0 +1,944 @@
+input.text,
+input[type="text"],
+input[type="button"],
+input[type="submit"],
+.input-checkbox {
+-webkit-appearance: none !important;
+
+}
+.border_cut {
+position: relative;
+font-size: 28px;
+z-index: 1;
+overflow: hidden;
+text-align: center;
+ width:100%;
+ 
+ 
+}
+.border_cut:before, .border_cut:after {
+position: absolute;
+top: 51%;
+overflow: hidden;
+width: 50%;
+height: 1px;
+content: '\a0';
+ 
+ 
+background-color: #ccc;
+}
+.border_cut:before {
+margin-left: -50%;
+text-align: right;
+}
+.border_cut {
+position: relative;
+font-size: 14px;
+z-index: 1;
+overflow: hidden;
+text-align: center;
+ width: 100%;
+ 
+ 
+}
+
+.clearable{
+	  
+	background:url(../images/close_input.png) no-repeat right -20px center;
+/*  border: 1px solid #999;
+  padding: 3px 18px 3px 4px;    
+  border-radius: 3px;*/
+  transition: background 0.4s;
+}
+.clearable.x  { background-position: right 5px center; } /* (jQ) Show icon */
+.clearable.onX{ cursor: pointer; }              /* (jQ) hover cursor style */
+.clearable::-ms-clear {display: none; width:0; height:0;} /* Remove IE default X */
+
+#custom-search-input{
+    padding: 3px;
+    border-radius: 6px;
+   
+}
+
+#custom-search-input input{
+    border: 0;
+    box-shadow: none;
+}
+
+#custom-search-input button{
+    margin: 2px 0 0 0;
+    background: none;
+    box-shadow: none;
+    border: 0;
+    color: #666666;
+    padding: 0 8px 0 10px;
+    border-left: solid 1px #ccc;
+}
+
+#custom-search-input button:hover{
+    border: 0;
+    box-shadow: none;
+    border-left: solid 1px #ccc;
+}
+
+#custom-search-input .glyphicon-search{
+    font-size: 19px; cursor:pointer;
+}
+
+
+.glyphicon {
+    color: #000;
+    display: inline-block;
+    font-family: "Glyphicons Halflings";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    left: -1px;
+    line-height: 0;
+    position: relative;
+    top:0px;
+}
+
+
+
+
+input.text,
+input[type="text"],
+input[type="button"],
+input[type="submit"],
+.input-checkbox {
+-webkit-appearance: none !important;
+}
+
+*{outline:none;}
+
+.padding_main{padding:0px;}
+.padding_in{padding:3px;}
+.padding_three{padding:5px;}
+.padding_three2{padding:8px;}
+.padding_left{padding-left:0px;}
+.padding_right{padding-right:50px;}
+.padding_right_mobile{padding-right:3px;}
+
+.padding_right_mobile_r{padding-left:3px; padding-right:0px;}
+.padding_right_mobile_l{padding-right:3px; padding-left:0px;}
+
+.padding_more{padding-left:30px; padding-right:40px}
+
+.padding_social{padding-left:20px;}
+.padding_social2{padding-left:30px; padding-right:0px;}
+
+
+.nav > li > a {
+    display: block;
+    padding: 0px 20px 0px  20px;
+    position: relative;
+	font-size:16px;
+	color:#000000;
+	margin-top:62px;
+	 font-weight: normal;
+	 letter-spacing:0.5px;
+}
+
+.navbar-nav > li.active a, .navbar-nav > li > a:hover {
+   
+    color: #cd0000;
+	
+}
+
+
+.banner2{background:url(../images/banner_500.png)  center top no-repeat; height:500px; max-width:100%}
+.banner_text2{  padding:5px 0px 0px 0px; margin-top:260px; /*background:url(../images/shadow.png); border:#828383 1px solid; border-radius:7px;*/  }
+.banner_text2 h1{padding:0px 0px 0px 0px; margin:0px 0px 0px 0px;  text-align:left; color:#fff; font-size:52px;font-family: 'Segoe UI'; text-align:center; font-weight: normal; text-shadow:1px 1px 3px #000;   }
+
+
+
+
+.banner3{background:url(../images/banner_530.png)  center top no-repeat; height:530px; max-width:100%}
+.banner_text3{  padding:5px 0px 0px 0px; margin-top:290px; /*background:url(../images/shadow.png); border:#828383 1px solid; border-radius:7px;*/  }
+.banner_text3 h1{padding:0px 0px 0px 0px; margin:0px 0px 0px 0px;  text-align:left; color:#fff; font-size:52px;font-family: 'Segoe UI'; text-align:center; font-weight: normal; text-shadow:1px 1px 3px #000;   }
+
+
+
+.banner{background:url(../images/banner.png)  center top no-repeat; height:530px; max-width:100%}
+.banner_text{  padding:5px 0px 0px 0px; margin-top:290px;   }
+.banner_text h1{padding:0px 0px 0px 0px; margin:0px 0px 0px 0px;  text-align:left; color:#fff; font-size:52px;font-family: 'Segoe UI'; text-align:center; font-weight: normal; text-shadow:1px 1px 3px #000;   }
+.b_border{ margin:0px 0px 0px 0px; }
+.input_box{background:url(../images/input_shadow.png) repeat; max-width:450px; margin:auto; border-radius: 7px; min-height:50px; margin-top:15px;}
+
+.banner_input {	 border:0px; border-radius: 7px; color: #000;border:none;  display: block; font-size:16px; height:40px; line-height: 1.42857;  padding: 6px 14px; width:100%;}
+
+.find_btn {border-radius:10px; color: #fff;  cursor: pointer;  letter-spacing:0px; margin: 15px 0px 20px 0px;padding:8px 0px;font-size:22px;border:none;text-align:center;	border-radius:5px;	background:#cd0000;	transition: color 0.2s ease-out 0s, background 1s ease-in 0s;	font-family: 'Segoe UI';width:177px;text-align:center;}
+
+.find_btn:hover {background:#b70101;border-radius:5px;color:#fff; transition: color 0.2s ease-out 0s, background 1s ease-in 0s;}
+
+
+.navbar-collapse {
+    border-top: 1px solid transparent;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1) inset;
+    max-height: 340px;
+    overflow-x: visible;
+    padding-left: 15px;
+    padding-right: 15px;
+	background:transparent
+}
+
+
+
+.mid_top{padding:0px; margin:135px 0px 0px 0px;}
+
+.how_it_box{margin:auto; text-align:center }
+.how_it_box h1{padding:25px 0px 60px 0px; margin:0px 0px 0px 0px; text-align:left; color:#23211f; font-size:24px; font-family: 'Segoe UI';
+ text-align:center;  font-weight: 600;}
+ 
+ 
+ .follow_cont{margin:auto; text-align:center; margin-top:65px; }
+.follow_cont h1{padding:38px 0px 0px 0px; margin:0px 0px 0px 0px; text-align:left; color:#23211f; font-size:29px; font-family: 'Segoe UI';
+ text-align:center;  font-weight: 600;}
+ 
+.s_facebook{background:#4d4d4d url(../images/bord_round.png) center center no-repeat; width:41px; height:41px; border-radius:50%; float:left; transition: color 0.2s ease-out 0s, background 1s ease-in 0s; margin:8px 0px 0px 0px;} 
+.s_facebook img{ margin:10px 0 0 14px;}
+.s_facebook:hover{background:#4867aa url(../images/bord_round.png) center center no-repeat;   width:41px; height:41px; border-radius:50%;  transition: color 0.2s ease-out 0s, background 0s ease-in 0s;}
+
+
+
+.s_instagram{background:#4d4d4d url(../images/bord_round.png) center center no-repeat; width:41px; height:41px; border-radius:50%; float:left; transition: color 0.2s ease-out 0s, background 1s ease-in 0s; margin:8px 0px 0px 15px;} 
+.s_instagram img{margin:12px 0 0 11px;}
+
+.s_instagram:hover{background:#2e5e86 url(../images/bord_round.png) center center no-repeat;  width:41px; height:41px; border-radius:50%;  transition: color 0.2s ease-out 0s, background 0s ease-in 0s;}
+
+
+
+.s_twitter{background:#4d4d4d url(../images/bord_round.png) center center no-repeat; width:41px; height:41px; border-radius:50%; float:left; transition: color 0.2s ease-out 0s, background 1s ease-in 0s; margin:8px 0px 0px 15px;} 
+.s_twitter img{  margin:13px 0 0 12px;}
+
+.s_twitter:hover{background:#1da0f2 url(../images/bord_round.png) center center no-repeat;   width:41px; height:41px; border-radius:50%; transition: color 0.2s ease-out 0s, background 0s ease-in 0s;}
+
+.s_youtube{background:#4d4d4d url(../images/bord_round.png) center center no-repeat; width:41px; height:41px; border-radius:50%; float:left; transition: color 0.2s ease-out 0s, background 1s ease-in 0s; margin:8px 0px 0px 15px;} 
+.s_youtube img{ margin:9px 0 0 12px;}
+.s_youtube:hover{background:#ee1c1b url(../images/bord_round.png) center center no-repeat;   width:41px; height:41px; border-radius:50%; transition: color 0.2s ease-out 0s, background 0s ease-in 0s;}
+
+
+.footer_wrapper{background: #fff;  width:100%;  margin-top:9px;}
+.footer_wrapper_in{background: #efeeee;  width:100%;  margin-top:0px;}
+.footer_top{padding:0px;}
+.footer_top h1{padding:24px 0px 0px 10px; margin:0px 0px 0px 5px; line-height:4px; letter-spacing:0px; text-align:left; color:#bd060d; font-size:20px;  font-family: 'Segoe UI'; font-weight:600; }
+
+
+.h_f_top_nav { margin: 0; padding: 0; }
+.h_f_top_nav ul { list-style: none outside none; margin:5px 0px 0px 0px; padding: 0px 0  30px 0px; text-align: left;}
+.h_f_top_nav ul li { margin: 0; padding: 0; }
+.h_f_top_nav ul li a { color: #070707; display: block; font-size: 14px; line-height:20px;   list-style: none outside none; margin: 0; padding: 7px 0 2px 15px; text-decoration: none;  font-family: 'Segoe UI'; font-weight:normal;}
+.h_f_top_nav ul li a:hover { color: #d8261c;text-decoration:none;}
+
+.footer_bottom{ margin:0px 0px 0px 0px}
+.footer_bottom h1{padding:0px 0px 0px 0px; margin:0px 0px 0px 10px; line-height:20px; letter-spacing:0px; text-align:left; color:#070707; font-size:16px; font-family: 'Segoe UI'; font-weight:normal; }
+
+
+.footer_bottom_right{ margin:0px 0px 0px 0px}
+.footer_bottom_right h1{padding:0px 0px 0px 0px; margin:8px 0px 0px 0px; line-height:20px; letter-spacing:0px;color:#070707; font-size:16px; font-family: 'Segoe UI'; font-weight:normal; text-align:right }
+.footer_bottom_right img{ margin:0px 0px 0px 6px}
+
+.navbar-brand{padding:10px 0 0 125px;}
+
+
+.login_header{border:#e2e0e0 1px solid; padding:10px 20px 0px 20px; border-radius:6px; background:#fff; margin:0px 0px 30px 0px;}
+.inmer_main{background:#efeeee; border-bottom:1px #e1dede solid; height:40px; padding:10px;}
+
+.btn_login {border-radius:10px; color: #fff;  cursor: pointer;  letter-spacing:0px; margin: 24px 0px 20px 0px;padding:5px 0px 8px 0px;font-size:22px;border:none;text-align:center;border-radius:5px;	background:#cd0000;	transition: color 0.2s ease-out 0s, background 1s ease-in 0s;	font-family: 'Segoe UI';width:100px;text-align:center;}
+.btn_login:hover {background:#b70101;border-radius:5px;color:#fff; transition: color 0.2s ease-out 0s, background 1s ease-in 0s;}
+
+
+
+.btn_contine_guest {border-radius:10px; color: #fff;  cursor: pointer;  letter-spacing:0px; margin: 24px 0px 20px 0px;padding:15px 0px 15px 0px;font-size:22px;border:none;border-radius:5px;	background:#a9a9a9;	transition: color 0.2s ease-out 0s, background 1s ease-in 0s;	font-family: 'Segoe UI';width:220px;text-align:center; font-weight:}
+.btn_contine_guest:hover {background:#b70101;border-radius:5px;color:#fff; transition: color 0.2s ease-out 0s, background 1s ease-in 0s;}
+
+
+.btn_contine {border-radius:10px; color: #fff;  cursor: pointer;  letter-spacing:0px; margin: 24px 0px 20px 0px;padding:15px 0px 15px 0px;font-size:22px;border:none;border-radius:5px;	background:#cd0000;	transition: color 0.2s ease-out 0s, background 1s ease-in 0s;	font-family: 'Segoe UI';width:220px;text-align:center; font-weight:}
+.btn_contine:hover {background:#b70101;border-radius:5px;color:#fff; transition: color 0.2s ease-out 0s, background 1s ease-in 0s;}
+
+
+
+
+.btn_popup {border-radius:10px; color: #fff;  cursor: pointer;  letter-spacing:0px; margin: 24px 0px 20px 0px;padding:10px 0px 13px 0px;font-size:16px;border:none;text-align:center;border-radius:5px;	background:#cd0000;	transition: color 0.2s ease-out 0s, background 1s ease-in 0s;	font-family: 'Segoe UI';width:100px;text-align:center;}
+.btn_popup:hover {background:#b70101;border-radius:5px;color:#fff; transition: color 0.2s ease-out 0s, background 1s ease-in 0s;}
+
+
+.btn_save {border-radius:10px; color: #fff;  cursor: pointer;  letter-spacing:0px; margin:5px 0px 0px 0px;padding:5px 0px 8px 0px;font-size:16px;border:none;text-align:center;border-radius:5px;	background:#cd0000;	transition: color 0.2s ease-out 0s, background 1s ease-in 0s;	font-family: 'Segoe UI';width:100px;text-align:center; width:100%;}
+.btn_save:hover {background:#b70101;border-radius:5px;color:#fff; transition: color 0.2s ease-out 0s, background 1s ease-in 0s;}
+
+
+.btn_edit{border-radius:10px; color: #fff;  cursor: pointer;  letter-spacing:0px; margin:10px 0px 0px 0px;padding:3px 0px 5px 0px;font-size:14px;border:none;text-align:center;border-radius:5px;	background:#cd0000;	transition: color 0.2s ease-out 0s, background 1s ease-in 0s;	font-family: 'Segoe UI';width:50px;text-align:center;}
+.btn_edit:hover {background:#b70101;border-radius:5px;color:#fff; transition: color 0.2s ease-out 0s, background 1s ease-in 0s;}
+
+.btn_add{border-radius:10px; color: #fff;  cursor: pointer;  letter-spacing:0px; margin:0px 0px 0px 0px;padding:3px 0px 5px 0px;font-size:14px;border:none;text-align:center;border-radius:5px;	background:#cd0000;	transition: color 0.2s ease-out 0s, background 1s ease-in 0s;	font-family: 'Segoe UI';width:50px;text-align:center;}
+.btn_add:hover {background:#b70101;border-radius:5px;color:#fff; transition: color 0.2s ease-out 0s, background 1s ease-in 0s;}
+
+
+
+.btn_loginmain {border-radius:10px; color: #fff;  cursor: pointer;  letter-spacing:0px; margin: 0px 0px 0px 0px;padding:5px 0px 8px 0px;font-size:18px;border:none;text-align:center;border-radius:5px;	background:#cd0000;	transition: color 0.2s ease-out 0s, background 1s ease-in 0s;	font-family: 'Segoe UI';width:100%;text-align:center;}
+.btn_loginmain:hover {background:#b70101;border-radius:5px;color:#fff; transition: color 0.2s ease-out 0s, background 1s ease-in 0s;}
+
+
+
+
+.login_head{margin:10px 0px 20px 0px; text-align:center; background:#cd0000; padding:10px 0px 15px 0px; border-radius:7px; color:#FFF; font-size:22px; font-weight:600; }
+
+
+.login_head_mobile{margin:-5px 0px 20px 0px; text-align:center; width:339px; background:#cd0000; padding:5px 0px 9px 0px; color:#FFF; font-size:22px; font-weight:600; }
+
+.main_login_wrapper{background:#fff padding-bottom:100px; background-attachment: fixed; }
+
+
+.inner_wrapper{background:#FFF; padding-bottom:60px;  }
+
+
+
+.left_nav { margin: 0; padding: 0; width:100%; margin-top:0px; background:#f7f6f6; border:1px #e8e7e7 solid; margin-top:99px; }
+.left_nav ul { list-style: none outside none;  padding: 0px 0px  5px; margin-bottom:0px;}
+.left_nav ul li { margin: 0; padding: 0; background:url(../images/arrow3.png) 3px 9px no-repeat; border-bottom:1px #e8e7e7 solid;}
+.left_nav ul li a {color:#23211f; display: block; font-size: 18px;  line-height: 40px; list-style: outside none none; margin: 0; padding: 0px 0 2px 18px; text-decoration: none;}
+.left_nav ul li a:hover { color: #fff ; background:#cd0000; display:block}
+.left_nav ul li a.active { color: #fff ; background:#cd0000; display:block;}
+
+.rest_left_pan{margin:50px 0px 0px 0px; padding:0px;}
+.right_pan{margin:100px 0px 0px 0px; padding:0px;}
+.cuisine_col{margin:3px 0px 0px 0px; padding:21px 0px 21px 0px; overflow:hidden; background:#fafafa; border-radius:8px;}
+.cuisine_col:hover{  overflow:hidden; background:#edf2f2}
+.cuisine_col h1{padding:0px 0px 0px 0px; margin:0px 0px 0px 0px; line-height:20px; letter-spacing:0px;  color:#c30001; font-size:22px; font-family: 'Segoe UI'; font-weight:600;  }
+.cuisine_col h2{padding:0px 0px 0px 0px; margin:10px 0px 0px 0px; line-height:25px; letter-spacing:0px;  color:#767676; font-size:16px; font-family: 'Segoe UI'; font-weight:normal; height:110px; }
+.cuisine_col h3{padding:0px 0px 5px 0px; margin:30px 0px 0px 0px; line-height:20px; letter-spacing:0px; color:#1a1919; font-size:16px; font-family: 'Segoe UI'; font-weight:normal;  }
+
+.cuisine_col h3 span{padding:0px 0px 5px 0px; margin:30px 0px 0px 0px; line-height:20px; letter-spacing:0px; color:#1a1919; font-size:16px; font-family: 'Segoe UI'; font-weight:normal;  }
+
+.cuisine_col h4{color: #1a1919;font-family: "Segoe UI"; font-size: 14px; font-weight: 600; letter-spacing: 0; line-height: 21px; margin: 0 0 5px; padding: 0 0 5px; }
+
+.cuisine_col h4 span{padding:0px 0px 5px 0px; margin:30px 0px 0px 0px; line-height:20px; letter-spacing:0px; color:#767676; font-size:14px; font-family: 'Segoe UI'; font-weight:normal;  }
+
+
+.cuisine_col p{padding:0px 0px 0px 0px; margin:10px 0px 0px 0px; line-height:20px; letter-spacing:0px;  color:#767676; font-size:14px; font-family: 'Segoe UI'; font-weight:normal; text-align:center }
+
+
+.resbg{ background:url(../images/res_img1.png) center top no-repeat; max-width:100%; background-size:cover; height:179px; border-radius:6px; margin-bottom:10px;}
+
+
+.res_wrapper{background:#f9f9f9; padding:0px 0px 20px 0px; border-bottom:#CCC 1px solid;}
+.restaurant_top{margin:3px 0px 0px 0px; padding:0px 0px 0px 0px; overflow:hidden;}
+.restaurant_top h1{padding:0px 0px 10px 15px; margin:0px 0px 0px 0px; line-height:30px; letter-spacing:0px;  color:#c30001; font-size:40px; font-family: 'Segoe UI'; font-weight:600;  }
+.restaurant_top p{color:#767676;font-family: "Segoe UI"; font-size: 14px; letter-spacing: 0; line-height: 21px; margin: 0 0 0px; padding: 0px 0px 0px 15px;   font-weight: normal;}
+
+.restaurant_top p span{color:#c30001;font-family:"Segoe UI";font-size:14px;letter-spacing:0;line-height:21px; margin:0 0 5px; padding: 0px 12px 0px 0px ;font-weight: 600;}
+
+.restaurant_top h2{padding:10px 0 15px 0px; margin:0px 0px 0px 0px; line-height:13px; letter-spacing:0px;  color:#c30001; font-size:22px; font-family: 'Segoe UI'; font-weight:600;  }
+
+.restaurant_top h4{padding:10px 10px 15px 10px; margin:0px 0px 0px 0px; line-height:13px; letter-spacing:0px;  color:#c30001; font-size:22px; font-family: 'Segoe UI'; font-weight:600;  }
+
+.restaurant_top h5{padding:15px 0px 6px 0px; margin:0px 0px 0px 0px; line-height:12px; letter-spacing:0px;  color:#000; font-size:18px; font-family: 'Segoe UI'; font-weight:600;  }
+.restaurant_top h6{color:#767676;font-family: "Segoe UI"; font-size: 14px; letter-spacing: 0; line-height: 21px; margin: 0 0 5px; padding: 0px 15px 10px 0px;   font-weight: normal;}
+
+
+.restaurant_col{margin:3px 0px 0px 0px; padding:0px 0px 21px 0px; overflow:hidden; background:#fff; border-radius:8px;}
+.restaurant_col h1{padding:0px 0px 0px 0px; margin:0px 0px 0px 0px; line-height:20px; letter-spacing:0px;  color:#c30001; font-size:22px; font-family: 'Segoe UI'; font-weight:600;  }
+.restaurant_col h1 span{padding:3px 5px; margin:0px 0px 0px 0px; line-height:20px; letter-spacing:0px;  color:#fff; font-size:14px; font-family: 'Segoe UI'; font-weight:600; float:right; background:#c30001; border-radius:5px;}
+.restaurant_col h2{padding:0px 0px 0px 0px; margin:0px 0px 0px 0px; line-height:25px; letter-spacing:0px;  color:#767676; font-size:14px; font-family: 'Segoe UI'; font-weight:normal;  }
+.restaurant_col h3{padding:0px 0px 5px 0px; margin:30px 0px 0px 0px; line-height:20px; letter-spacing:0px; color:#1a1919; font-size:16px; font-family: 'Segoe UI'; font-weight:normal;  }
+.restaurant_col h3 span{padding:0px 0px 5px 0px; margin:30px 0px 0px 0px; line-height:20px; letter-spacing:0px; color:#1a1919; font-size:16px; font-family: 'Segoe UI'; font-weight:normal;  }
+.restaurant_col h4{color: #1a1919;font-family: "Segoe UI"; font-size: 14px; font-weight: 600; letter-spacing: 0; line-height: 21px; margin: 0 0 5px; padding: 0 0 5px; }
+.cuisine_col h4 span{padding:0px 0px 5px 0px; margin:30px 0px 0px 0px; line-height:20px; letter-spacing:0px; color:#767676; font-size:14px; font-family: 'Segoe UI'; font-weight:normal;  }
+
+.restaurant_col h6 span
+{padding:0px 10px 0px 0px; margin:10px 0px 0px 0px; line-height:25px; letter-spacing:0px;  color:#767676; font-size:14px; font-family: 'Segoe UI'; font-weight:normal;  }
+
+
+
+
+
+.restaurant_col_detail{margin:3px 0px 0px 0px; padding:0px 0px 21px 0px; overflow:hidden; background:#fff; border-radius:8px;}
+.restaurant_col_detail h1{padding:0px 0px 0px 0px; margin:0px 0px 0px 0px; line-height:20px; letter-spacing:0px;  color:#c30001; font-size:22px; font-family: 'Segoe UI'; font-weight:600;  }
+.restaurant_col_detail h2{padding:0px 0px 0px 0px; margin:0px 0px 0px 0px; line-height:25px; letter-spacing:0px;  color:#767676; font-size:14px; font-family: 'Segoe UI'; font-weight:normal;  }
+.restaurant_col_detail h3{padding:0px 0px 5px 0px; margin:30px 0px 0px 0px; line-height:20px; letter-spacing:0px; color:#1a1919; font-size:16px; font-family: 'Segoe UI'; font-weight:normal;  }
+
+.restaurant_col_detail h4{color: #767676; font-family: "Segoe UI"; font-size: 14px;  letter-spacing: 0; line-height: 25px; margin: 0 0 5px; padding: 10px 0 5px; font-weight:normal;  }
+.restaurant_col_detail h4 span{padding:0px 0px 5px 0px; margin:30px 0px 0px 0px; line-height:20px; letter-spacing:0px; color:#767676; font-size:14px; font-family: 'Segoe UI'; font-weight:normal;  }
+.restaurant_col_detail h6 
+{padding:0px 10px 0px 0px; margin:10px 0px 0px 0px; line-height:25px; letter-spacing:0px;  color:#000; font-size:16px; font-family: 'Segoe UI'; font-weight:600;  }
+.restaurant_col_detail h6 span
+{padding:0px 10px 0px 0px; margin:10px 0px 0px 0px; line-height:25px; letter-spacing:0px;  color:#000;  font-family: 'Segoe UI'; font-weight:normal; font-size:14px; }
+
+
+
+
+.restaurant_total{margin:0px 0px 0px 0px; padding:0px 0px 1px 0px; overflow:hidden;}
+
+
+.restaurant_total h4{color: #767676; font-family: "Segoe UI"; font-size: 14px;  letter-spacing: 0; line-height: 25px; margin: 0 0 0px; padding: 0px 0 0px; font-weight:600;  }
+.restaurant_total h4 span{padding:0px 0px 0px 0px; margin:3px 0px 0px 0px; line-height:20px; letter-spacing:0px; color:#767676; font-size:14px; font-family: 'Segoe UI'; font-weight:normal; float:right;  }
+
+.restaurant_total h5{color: #767676; font-family: "Segoe UI"; font-size: 14px;  letter-spacing: 0; line-height: 25px; margin: 0 0 0px; padding: 0px 0 0px; font-weight:600;  }
+.restaurant_total h5 span{padding:0px 0px 0px 0px; margin:3px 0px 0px 0px; line-height:20px; letter-spacing:0px; color:#767676; font-size:14px; font-family: 'Segoe UI'; font-weight:normal; float:right;  }
+
+.restaurant_total h6{color: #000; font-family: "Segoe UI"; font-size: 18px;  letter-spacing: 0; line-height: 25px; margin: 0 0 0px; padding: 0px 0 0px; font-weight:600;  }
+.restaurant_total h6 span{padding:0px 0px 0px 0px; margin:3px 0px 0px 0px; line-height:20px; letter-spacing:0px; color:#000; font-size:18px; font-family: 'Segoe UI'; font-weight:normal; float:right;  }
+
+
+
+
+
+
+.restaurant_top_right{margin:52px 0px 0px 0px; padding:0px 10px 10px 10px;  background:#fafafa; border-radius:8px; overflow:hidden;}
+
+.restaurant_top_right_text{margin:15px 0px 0px 0px; padding:0px 0px 12px 0px; overflow:hidden; background:#777777; border-radius:5px;}
+.restaurant_top_right_text h5{padding:0px 0px 0px 0px; margin:0px 0px 0px 0px; line-height:70px; letter-spacing:0px;  color:#fff; font-size:80px !important; font-family: 'Segoe UI'; font-weight:bold; text-align:center;   }
+.restaurant_top_right_text p{padding:0px 0px 0px 0px; margin:10px 0px 0px 0px; line-height:20px; letter-spacing:0px;  color:#fff; font-size:14px; font-family: 'Segoe UI'; font-weight:normal; text-align:center }
+
+
+.restaurant_col_right{margin:3px 0px 0px 0px; padding:20px 0px 21px 0px; overflow:hidden;}
+.restaurant_col_right h1{padding:0px 0px 0px 0px; margin:0px 0px 0px 0px; line-height:20px; letter-spacing:0px;  color:#c30001; font-size:22px; font-family: 'Segoe UI'; font-weight:600;  }
+
+.restaurant_col_right h6{padding:0px 0px 0px 0px; margin:10px 0px 0px 0px; line-height:20px; letter-spacing:0px;  color:#767676; font-size:16px; font-family: 'Segoe UI'; font-weight:normal; text-align:center }
+
+
+
+
+
+
+
+
+
+
+.btn_order {border-radius:10px; color: #fff;  cursor: pointer;  letter-spacing:0px; margin: 15px 0px 0px 0px;padding:3px 10px 5px 10px;font-size:14px;border:none;text-align:center;border-radius:5px;	background:#cd0000;	transition: color 0.2s ease-out 0s, background 1s ease-in 0s;	font-family: 'Segoe UI';text-align:center; text-transform:uppercase;}
+.btn_login:hover {background:#b70101;border-radius:5px;color:#fff; transition: color 0.2s ease-out 0s, background 1s ease-in 0s;}
+
+.btn_checkout {border-radius:10px; color: #fff;  cursor: pointer;  letter-spacing:0px; margin: 15px 0px 0px 0px;padding:3px 20px 5px 20px;font-size:14px;border:none;text-align:center;border-radius:5px;	background:#cd0000;	transition: color 0.2s ease-out 0s, background 1s ease-in 0s;	font-family: 'Segoe UI';text-align:center;}
+.btn_checkout:hover {background:#b70101;border-radius:5px;color:#fff; transition: color 0.2s ease-out 0s, background 1s ease-in 0s;}
+
+
+.account_head{margin:99px 0px 40px 0px; padding:0px;}
+.account_head h1{padding:0px 0px 0px 0px; margin:10px 0px 0px 0px; line-height:20px; letter-spacing:0px;  color:#1a1919; font-size:22px; font-family: 'Segoe UI'; font-weight:600;  }
+.account_head h5 span{padding:0px 15px 0px 0px; margin:10px 0px 0px 0px; line-height:25px;}
+.account_head h1 font{padding:0px 15px 0px 0px; margin:0px 0px 0px 0px; line-height:25px; float:right; font-size:16px; font-weight:600;}
+
+
+.account_head h4{padding:0px 0px 0px 0px; margin:20px 0px 0px 0px; line-height:20px; letter-spacing:0px;  color:#1a1919; font-size:17px; font-family: 'Segoe UI'; font-weight:600;  }
+
+.account_head h4 span{padding:0px 0px 0px 0px; margin:30px 0px 0px 40px; line-height:20px; letter-spacing:0px;  color:#1a1919; font-size:17px; font-family: 'Segoe UI'; font-weight:normal;   }
+
+
+.account_head2{margin:99px 0px 20px 0px; padding:0px;}
+.account_head2 h1{padding:0px 0px 0px 0px; margin:10px 0px 0px 0px; line-height:20px; letter-spacing:0px;  color:#1a1919; font-size:22px; font-family: 'Segoe UI'; font-weight:600; }
+.account_head2 h5 span{padding:0px 15px 0px 0px; margin:10px 0px 0px 0px; line-height:30px;}
+.account_head2 h1 font{padding:0px 15px 0px 0px; margin:0px 0px 0px 0px; line-height:25px; float:right; font-size:14px}
+
+
+
+.account_head_sign{margin:69px 0px 40px 0px; padding:0px;}
+.account_head_sign h1{padding:0px 0px 0px 0px; margin:0px 0px 80px 0px; line-height:70px; letter-spacing:0px;  color:#000000; font-size:44px; font-family: 'Segoe UI'; font-weight:normal; text-align:center; }
+.account_head_sign h1 span{ text-align:center; border-bottom:2px #cd0000 solid; padding:0px 0px 4px 0px; }
+
+
+.thanks{margin:99px 0px 20px 0px; padding:0px; text-align:center}
+.thanks h1{padding:0px 0px 0px 0px; margin:0px 0px 50px 0px; line-height:20px; letter-spacing:0px;  color:#c30001; font-size:40px; font-family: 'Segoe UI'; font-weight:600; }
+.thanks h4{padding:0px 0px 0px 0px; margin:25px 0px 15px 0px; line-height:35px; letter-spacing:0px;  color:#000; font-size:22px; font-family: 'Segoe UI'; font-weight:600; }
+
+
+.account_head3{margin:99px 0px 20px 0px; padding:0px;}
+.account_head3 h1{padding:0px 0px 0px 0px; margin:0px 0px 0px 0px; line-height:20px; letter-spacing:0px;  color:#1a1919; font-size:22px; font-family: 'Segoe UI'; font-weight:600; }
+.account_head3 h4{padding:0px 0px 0px 0px; margin:0px 0px 15px 0px; line-height:35px; letter-spacing:0px;  color:#969494; font-size:17px; font-family: 'Segoe UI'; font-weight:600; }
+
+.account_head3 h4 span{padding:0px 30px 0px 30px; margin:0px 0px 0px 0px; line-height:20px; letter-spacing:0px;  color:#969494; font-size:17px; font-family: 'Segoe UI'; font-weight:normal; }
+
+.account_head3 img{margin:0px 20px 0px 0px; padding:0px;}
+
+
+
+.inpu_text{font-size:16.5px; font-weight:600; font-family: 'Segoe UI'; padding-bottom:10px;}
+.inpu_text2{font-size:14px; font-weight:600; font-family: 'Segoe UI'; padding-bottom:3px; text-align:left;}
+
+.inpu_text3{font-size:14px; font-weight:600; font-family: 'Segoe UI'; padding:5px 0px 0px 0px; text-align:right;}
+.inpu_text3 span{font-size:11px; font-weight:600; font-family: 'Segoe UI'; padding:0px 0px 0px 0px; text-align:right; color:#666}
+.inpu_text4{font-size:11px; font-weight:600; font-family: 'Segoe UI'; padding:0px 0px 0px 0px; text-align:left; color:#666}
+.inpu_text5{font-size:14px; font-weight:600; font-family: 'Segoe UI'; padding:5px 0px 0px 0px; text-align:left;}
+.inpu_text5 span{font-size:11px; font-weight:600; font-family: 'Segoe UI'; padding:0px 0px 0px 0px; text-align:left; color:#666}
+.address_col{margin:9px 0px 20px 0px; padding:0px;}
+.address_col h5{padding:0px 0px 0px 0px; margin:0px 0px 0px 0px; line-height:25px; letter-spacing:0px;  color:#1a1919; font-size:17px; font-family: 'Segoe UI'; font-weight:600;  }
+.account_head h5 span{padding:0px 15px 0px 0px; margin:10px 0px 0px 0px; line-height:25px;}
+.account_head h1 font{padding:0px 15px 0px 0px; margin:0px 0px 0px 0px; line-height:25px; float:right; font-size:16px; font-weight:600;}
+
+
+.list_group{margin:0px 0px 40px 0px; padding:0px;}
+.list_group h1{padding:0px 0px 0px 0px; margin:10px 0px 30px 0px; line-height:20px; letter-spacing:0px;  color:#1a1919; font-size:24px; font-family: 'Segoe UI'; font-weight:600; text-align:center  }
+.list_group p {padding:0px 0px 0px 0px; margin:0px 0px 0px 0px; line-height:20px; letter-spacing:0px;  color:#1a1919; font-size:14px; font-family: 'Segoe UI'; font-weight:normal; text-align: justify;  }
+
+
+
+.list_group_mobile1{margin:0px 0px 40px 0px; padding:0px; /*background:url(../images/why_img1_mobile.png)  center 50px no-repeat; min-height:325px;*/}
+.list_group_mobile1 h1{padding:5px 0px 0px 0px; margin:0px 0px 10px 0px; line-height:20px; letter-spacing:0px;  color:#1a1919; font-size:24px; font-family: 'Segoe UI'; font-weight:600; text-align:center  }
+.list_group_mobile1 p {padding:5px 10px 10px 10px; margin:0px 0px 0px 0px; line-height:23px; letter-spacing:0px;  color:#000; font-size:16px; font-family: 'Segoe UI'; font-weight:normal; text-align: justify;  }
+
+
+.list_group_mobile2{margin:0px 0px 40px 0px; padding:0px; /*background:url(../images/why_img2_mobile.png)  center 70px no-repeat; min-height:340px;*/}
+.list_group_mobile2 h1{padding:5px 0px 3px 0px; margin:0px 0px 10px 0px; line-height:20px; letter-spacing:0px;  color:#1a1919; font-size:24px; font-family: 'Segoe UI'; font-weight:600; text-align:center  }
+.list_group_mobile2 p {padding:3px 10px 10px 10px; margin:0px 0px 0px 0px; line-height:23px; letter-spacing:0px;  color:#000; font-size:16px; font-family: 'Segoe UI'; font-weight:normal; text-align: justify;  }
+
+
+.list_group_mobile3{margin:0px 0px 40px 0px; padding:0px; /*background:url(../images/why_img3_mobile.png)  center 70px no-repeat; min-height:400px;*/}
+.list_group_mobile3 h1{padding:5px 0px 3px 0px; margin:0px 0px 10px 0px; line-height:20px; letter-spacing:0px;  color:#1a1919; font-size:24px; font-family: 'Segoe UI'; font-weight:600; text-align:center  }
+.list_group_mobile3 p {padding:3px 10px 10px 10px; margin:0px 0px 0px 0px; line-height:23px; letter-spacing:0px;  color:#000; font-size:16px; font-family: 'Segoe UI'; font-weight:normal; text-align: justify;  }
+
+
+
+.list_group_mobile4{margin:0px 0px 40px 0px; padding:0px; /*background:url(../images/why_img4_mobile.png)  center 110px no-repeat; min-height:400px;*/}
+.list_group_mobile4 h1{padding:5px 0px 3px 0px; margin:0px 0px 10px 0px; line-height:20px; letter-spacing:0px;  color:#1a1919; font-size:24px; font-family: 'Segoe UI'; font-weight:600; text-align:center  }
+.list_group_mobile4 p {padding:3px 10px 10px 10px; margin:0px 0px 0px 0px; line-height:23px; letter-spacing:0px;  color:#000; font-size:16px; font-family: 'Segoe UI'; font-weight:normal; text-align: justify;  }
+
+.list_group_mobile5{margin:0px 0px 40px 0px; padding:0px; /*background:url(../images/why_img5_mobile.png)  center 150px no-repeat; min-height:400px;*/}
+.list_group_mobile5 h1{padding:5px 0px 3px 0px; margin:0px 0px 10px 0px; line-height:20px; letter-spacing:0px;  color:#1a1919; font-size:24px; font-family: 'Segoe UI'; font-weight:600; text-align:center  }
+.list_group_mobile5 p {padding:3px 10px 10px 10px; margin:0px 0px 0px 0px; line-height:23px; letter-spacing:0px;  color:#000; font-size:16px; font-family: 'Segoe UI'; font-weight:normal; text-align: justify;  }
+
+
+
+.glossymenu{
+margin:30px 0 0px 0px;
+padding:0px; /*width of menu*/
+border-bottom-width: 0;
+background:#fff;
+margin-bottom:40px;
+border-radius:2px;
+}
+
+.glossymenu a.menuitem{
+
+font-size:18px;
+display: block;
+position: relative; /*To help in the anchoring of the ".statusicon" icon image*/
+width: auto;
+padding:18px 30px 20px 30px;
+text-decoration: none;
+
+/*font-weight:bold;*/
+color:#000;
+font-family: 'Segoe UI';
+font-weight:600;
+background:#fafafa;
+margin-bottom:2px;
+
+
+}
+
+
+.glossymenu a.menuitem:visited, .glossymenu .menuitem:active{
+
+}
+
+.glossymenu a.menuitem .statusicon{ /*CSS for icon image that gets dynamically added to headers*/
+position: absolute;
+top: 19px;
+right:10px;
+border: none;
+}
+
+.sel{background:#cd0000 !important;
+	color:#fff !important;}
+
+.glossymenu a.menuitem:hover{
+	background:#cd0000;
+	color:#fff;
+	transition: color 0.2s ease-out 0s, background 1s ease-in 0s;
+}
+
+.glossymenu div.submenu{ /*DIV that contains each sub menu*/
+background: white;
+}
+
+.glossymenu div.submenu ul{ /*UL of each sub menu*/
+ list-style: none outside none; margin: 0; padding: 0px 0  0px; text-align: left;
+}
+
+.glossymenu div.submenu ul li{
+
+ margin:2px 0px;
+ background:#f7f6f6;
+ line-height:25px;
+ padding:0px 4px;
+}
+
+.glossymenu div.submenu ul li a{
+    color: #303030;
+    display: block;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 27px;
+    list-style: outside none none;
+    margin: 0;
+    padding: 7px 0 9px 27px;
+    text-decoration: none;
+	font-weight:600;
+}
+
+.glossymenu div.submenu ul li a:hover{
+background: #cd0000;
+color:#fff;
+font-weight:normal;
+font-size:16px;
+font-weight:600;
+transition: color 0.2s ease-out 0s, background 1s ease-in 0s;
+}
+
+
+.glossymenu div.submenu ul li a .active{
+background: #cd0000;
+color:#fff;
+font-weight:normal;
+font-size:16px;
+font-weight:600;
+transition: color 0.2s ease-out 0s, background 1s ease-in 0s;
+}
+
+.wrap_margin{margin-top:103px;}
+
+/*.fa5 {
+    border: 2px solid #cd0000;
+    border-radius: 60%;
+    color: #cd0000;
+    display: none;
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    margin: 33% 3px;
+    padding: 10px;
+}*/
+
+.setting_col{margin:-1px 0px 0px 0px; padding:0px 0px 21px 0px;  overflow:hidden; background:#f7f6f6}
+.setting_col h1{ background: #bd060d none repeat scroll 0 0; border-radius: 0px 0px 0 0; color: #fff; font-size: 30px; font-weight: 600;  margin: 0px 0;
+padding: 10px 0 12px; text-align: center;}
+.setting_col h2{padding:0px 0px 0px 0px; margin:10px 20px 0px 20px; line-height:35px; letter-spacing:0px;  color:#000; font-size:22px; font-family: 'Segoe UI'; font-weight:normal; border-bottom:1px #999 solid }
+.setting_col h3{padding:0px 0px 0px 0px; margin:10px 0px 0px 0px; line-height:20px; letter-spacing:0px; color:#767676; font-size:15px; font-family: 'Segoe UI'; font-weight:normal;  }
+.setting_col p{padding:0px 0px 0px 0px; margin:10px 0px 0px 0px; line-height:20px; letter-spacing:0px;  color:#000; font-size:16px; font-family: 'Segoe UI'; font-weight:normal; text-align:left }
+
+.td_bord{ border-bottom:1px #e4e2e2 solid; border-right:1px #e4e2e2 solid; font-size:12.5px; padding:0px 5px;}
+.td_bord2{ border-bottom:1px #e4e2e2 solid; border-right:1px #e4e2e2 solid; font-size:12.5px; padding:0px 10px;}
+.td_bord2:last-child{  border-right:none;}
+.td_bord:last-child{  border-right:none;}
+.pending{color:#a94442}
+.delivered{color:#02c70f}
+.Processing{color:#faaf0e}
+.td_bord3{  font-size:12.5px; padding:0px 10px;}
+
+
+.top_menu{ display:block}
+.top_submenu{ display:none}
+
+.mobile{display:none}
+.pc{display:block}
+.payment_icon{width:45px}
+.font_s{font-size:12px; color:#494949; font-weight:bold;}	
+.footer_width{width:75%}
+.footer_nav_padding{padding-left:75px; padding-right:30px;}
+.footer_nav_text{padding-left:35px !important;}
+.footer_nav_text2{padding-left:25px !important;}
+
+
+.filter_head{margin:99px 0px 25px 0px; padding:0px;}
+.filter_head h1{padding:0px 0px 0px 0px; margin:10px 0px 0px 0px; line-height:20px; letter-spacing:0px;  color:#1a1919; font-size:22px; font-family: 'Segoe UI'; font-weight:600;  }
+
+.category { margin: 0; padding: 0; width:100%; margin-top:6px; }
+.category ul { list-style: none outside none;  padding: 0px 0  25px; margin-bottom:20px;}
+.category ul li { margin: 0; padding: 0 20px;}
+.category ul li a {color: #1a1919; display: block; font-size: 16px;  line-height: 35px; list-style: outside none none; margin: 0; padding: 0px 0 2px 0px; text-decoration: none;}
+.category ul li a:hover { color: #cd0000; display:block}
+.category ul li a.active { color: #cd0000;}
+.category h2 {color: #1a1919; display: block; font-size:20px;  line-height: 35px; list-style: outside none none; margin: 0; padding:5px 0 0px 22px; text-decoration: none; b}
+
+.c_nav { margin: 0; padding: 0; width:100%; margin-top:6px; }
+.c_nav ul { list-style: none outside none;  padding: 10px 0  25px; margin-bottom:20px;}
+.c_nav ul li { margin: 0; padding: 0 20px; border-bottom:1px #e2e1e1 solid;}
+.c_nav ul li a {color: #1a1919; display: block; font-size: 16px;  line-height: 35px; list-style: outside none none; margin: 0; padding: 0px 0 2px 0px; text-decoration: none;}
+.c_nav ul li a:hover { color: #cd0000; display:block;}
+.c_nav ul li a.active { color: #cd0000;}
+
+
+
+
+.message_head{margin:0px 0px 30px 0px; padding:0px; overflow:hidden;}
+.message_head h1{padding:0px 0px 0px 0px; margin:1px 0px 0px 0px; line-height:20px; letter-spacing:0px;  color:#dc212a; font-size:23px; font-family: 'Segoe UI'; font-weight:600;display:block; text-align:center; padding:15px;  }
+.message_head h1:hover{padding:0px 0px 0px 0px; margin:1px 0px 0px 0px; line-height:20px; letter-spacing:0px;  color:#dc212a; font-size:23px; font-family: 'Segoe UI'; font-weight:600; display:block; text-align:center; padding:15px;  cursor:pointer; }
+
+
+
+@media only screen and (max-width: 1200px) {
+.footer_nav_padding {
+    padding-left: 38px;
+    padding-right: 7px;
+}
+}
+@media only screen and (max-width: 1024px) {
+	
+.nav > li > a {
+    display: block;
+    padding: 0px 11px 0px  11px;
+    position: relative;
+	font-size:16px;
+	color:#000000;
+	margin-top:62px;
+	 font-weight: normal;
+	 letter-spacing:0.5px;
+}	
+	
+	
+.navbar-brand{padding:10px 0 0 15px;}
+.banner{background:url(../images/banner_mid.png)  center top no-repeat; height:446px; max-width:100%}
+.banner_text{padding:5px 0px 0px 0px; margin-top:240px;  }
+.banner_text h1{padding:0px 0px 0px 0px; margin:0px 0px 0px 0px;  text-align:left; color:#fff; font-size:40px; font-family: 'Segoe UI'; text-align:center; font-weight: }
+.footer_nav_padding{padding-left:0px; padding-right:15px;}
+.footer_width{width:100%}
+}
+
+
+
+
+@media only screen and (max-width: 767px) {
+.input_mar{margin-top:12px;}
+.account_head{margin:40px 0px 40px 0px; padding:0px;}
+.account_head2{margin:0px 0px 20px 0px; padding:0px;}
+	.fa5 {
+    border: 2px solid #cd0000;
+    border-radius: 60%;
+    color: #cd0000;
+    display: block;
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    margin: 33% 3px;
+    padding: 10px;
+	display:none;
+}
+.payment_icon{width:40px}
+.font_s{font-size:12px}	
+.mobile{display:block}
+.pc{display:none}
+	
+.td_bord{ border-bottom:1px #e4e2e2 solid; border-right:1px #e4e2e2 solid; font-size:11px; padding:0px 5px;}
+.td_bord2{ border-bottom:1px #e4e2e2 solid; border-right:1px #e4e2e2 solid; font-size:11px; padding:0px 10px;}
+.td_bord2:last-child{  border-right:none;}
+.td_bord:last-child{  border-right:none;}
+	
+.navbar-brand{  padding: 12px 0 0 15px;
+    width: 150px;}
+	
+	.navbar-toggle {
+    background-color: #ca0100;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    float: right;
+    margin-bottom: 8px;
+    margin-right: 15px;
+    margin-top: 17px;
+    padding: 4px 5px;
+    position: relative;
+}
+
+.navbar-toggle .icon-bar {
+    border-radius: 1px;
+    display: block;
+    height: 2px;
+    width: 24px;
+}
+
+.navbar-static-top {
+    background: #fff none repeat scroll 0 0;
+    border-bottom: 1px solid #e3e3e3;
+    height:65px;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+}
+.wrap_margin{margin-top:60px;}
+}
+
+
+@media only screen and (max-width: 768px) {
+	
+	.checkbox label::after {
+    color: #555555;
+    display: inline-block;
+    font-size: 11px;
+    height: 21px;
+    left: 0;
+    margin-left: -22px;
+    padding-left: 3px;
+    padding-top: 0;
+    position: absolute;
+    top: 0;
+    width: 21px;
+}
+	
+	.flag_mar{margin-top:-4px;  position:absolute; margin-left:24% ; right:0;}
+	.inmer_main{background:#efeeee; border-bottom:1px #e1dede solid; height:40px; padding:10px; margin-top:-40px;}
+	
+	.padding_more{padding-left:0px; padding-right:0px}
+	
+	.inpu_text3{font-size:14px; font-weight:600; font-family: 'Segoe UI'; padding:5px 0px 0px 0px; text-align:left;}
+.inpu_text3 span{font-size:11px; font-weight:600; font-family: 'Segoe UI'; padding:0px 0px 0px 0px; text-align:left; color:#666}
+
+.how_it_box h1{padding:25px 0px 60px 0px; margin:0px 0px 0px 0px; text-align:left; color:#23211f; font-size:17px; font-family: 'Segoe UI';
+ text-align:center;  font-weight: 600;}
+ .foot_	
+	
+	.footer_nav_padding{padding-left:40px; padding-right:40px;}
+	
+.navbar-nav > li > .dropdown-menu {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    margin-top: -17px;
+
+}	
+	
+	
+	
+.banner{background:url(../images/banner_small.png)  center top no-repeat; height:333px; }
+.banner_text{ padding:5px 0px 0px 0px; margin-top:170px; }
+.banner_text h1{padding:0px 0px 0px 0px; margin:0px 0px 0px 0px;  text-align:left; color:#fff; font-size:31px;font-family: 'Segoe UI'; text-align:center; font-weight: normal;}
+.b_border{ margin:20px 0px 0px 0px; }
+.input_box{background:url(../images/input_shadow.png) repeat; max-width:370px; margin:auto; border-radius: 7px; min-height:35px; margin-top:10px;}
+
+.banner_input {
+
+    border:0px; border-radius: 7px; color: #000;border:none;  display: block;  font-size: 16px;  height:35px;  line-height: 1.42857;  padding: 6px 14px;
+    width:100%;}
+
+.find_btn {border-radius:10px; color: #fff;  cursor: pointer;  letter-spacing:0px; margin: 10px 0px 20px 0px;padding:5px 0px;font-size:22px;border:none;text-align:center;	border-radius:5px;	background:#cd0000;	transition: color 0.2s ease-out 0s, background 1s ease-in 0s;	font-family: 'Segoe UI';width:177px;text-align:center;}
+
+.find_btn:hover {background:#b70101;border-radius:5px;color:#fff; transition: color 0.2s ease-out 0s, background 1s ease-in 0s;}
+
+
+.nav > li > a {
+    padding: 49px 9px;
+	font-size:14px;
+	line-height:15px;
+	background-image:none;
+	margin-top: 5px;
+}
+	
+}
+
+
+
+@media only screen and (max-width: 500px) {
+	
+.flag_mar{margin-top:-5px; float:left; position:absolute; margin-left:8% }
+	
+.mid_top{padding:0px; margin:50px 0px 0px 0px;}
+.banner{background:url(../images/banner_mobile.png)  center top no-repeat; height:224px; width:100%; }
+.how_it_box h1{padding:10px 0px 20px 0px; margin:0px 0px 0px 0px; text-align:left; color:#23211f; font-size:10px; font-family: 'Segoe UI';
+ text-align:center;  font-weight: 600;}
+.banner{background:url(../images/banner_mobile.png) center top no-repeat; }
+.banner_text{  padding:0px 0px 0px 0px; margin-top:100px;}
+.banner_text h1{padding:5px 0px 5px 0px; margin:0px 0px 0px 0px;  text-align:left; color:#fff; font-size:20px;font-family: 'Segoe UI'; text-align:center; font-weight: normal;  }
+.b_border{ margin:0px 0px 0px 0px; }
+.input_box{background:url(../images/input_shadow.png) repeat; max-width:200px; margin:auto; border-radius: 7px; min-height:30px; margin-top:5px;}
+
+.banner_input {
+	
+    border:0px; border-radius: 7px; color: #000;border:none;  display: block;  font-size: 14px;  height:20px;  line-height: 1.42857;  padding: 2px 14px;
+    width:100%;}
+
+.find_btn { border-radius:10px; color: #fff;  cursor: pointer;  letter-spacing:0px; margin:10px 0px 5px 0px;padding:5px 0px;font-size:15px;border:none;text-align:center;	border-radius:5px;	background:#cd0000;	transition: color 0.2s ease-out 0s, background 1s ease-in 0s;	font-family: 'Segoe UI';width:130px;text-align:center;}
+
+.find_btn:hover {background:#b70101;border-radius:5px;color:#fff; transition: color 0.2s ease-out 0s, background 1s ease-in 0s;}
+
+
+.nav > li > a {
+    padding: 10px 9px !important;
+	font-size:14px;
+	line-height:15px;
+	background-image:none;
+	margin-top: 5px;
+
+}
+
+}
+
+
+
+
+
+
+
+@media (max-width: 767px) {
+.social_col{width:210px; margin:auto;}
+	.footer_bottom_right{ margin:20px 0px 0px 0px}
+.footer_bottom_right h1{padding:0px 0px 0px 0px; margin:-6px 0px 0px 0px; line-height:20px; letter-spacing:0px; t color:#070707; font-size:16px; font-family: 'Segoe UI'; font-weight:normal; text-align:center }
+.footer_bottom_right img{ margin:0px}
+	
+	
+.footer_nav{display:none}
+.top_menu{ display:none}
+.top_submenu{ display:block}
+	
+	
+	.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+    background-color: #fff;
+    color: #cd0000;
+    text-decoration: none;
+}
+	
+	.navbar-nav .open .dropdown-menu > li > a, .navbar-nav .open .dropdown-menu .dropdown-header {
+    padding: 8px 1px 5px 0;
+}
+	.navbar-nav .open .dropdown-menu {
+    background-color: transparent;
+    border: 0 none;
+    box-shadow: none;
+    float: none;
+    margin-top: -23px;
+    padding: 4px 12px 0 0;
+    position: static;
+    text-align: right;
+    width: auto;
+}
+
+	.navbar-collapse {
+    border-top: 1px solid transparent;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1) inset;
+    max-height: 600px;
+    overflow-x: visible;
+    padding-left: 15px;
+    padding-right: 15px;
+	background:#fff;
+	margin-top: 10px;
+	border: 1px solid #c3c3c3;
+}
+
+.nav > li > a {
+    background-image: none;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 15px;
+    margin: 25px 3px ;
+    padding: 0px 0px !important;
+	text-align:right;
+}
+
+
+
+  .table_responsive {
+    width: 100%;
+    margin-bottom: 15px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    border: 1px solid #ddd;
+  }
+  .size{font-size:14px !important;}
+}
+
+
+@media (min-width: 1400px) {
+ .banner{background:url(../images/big_banner.png)  center top no-repeat; height:720px; background-size:cover;}
+ .banner_text{  padding:100px 0px 0px 0px;  }
+}

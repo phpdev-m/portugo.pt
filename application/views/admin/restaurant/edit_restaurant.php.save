@@ -1,0 +1,362 @@
+<?php
+error_reporting(0);
+$getid = $this->uri->segment(4);
+$restaurant_name = $this->restaurant_model->get_restaurant_detail($getid);
+//print_r($restaurant_name);die;
+?>
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+<meta charset="utf-8" />
+<title><?php echo $title; ?> | Admin Restaurant</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<meta content="" name="description" />
+<meta content="" name="author" />
+<!-- BEGIN GLOBAL MANDATORY STYLES -->
+<link href="<?php echo base_url('public/admin/assets/plugins/bootstrap/css/bootstrap.min.css'); ?>" rel="stylesheet" type="text/css"/>
+<link href="<?php echo base_url('public/admin/assets/plugins/bootstrap/css/bootstrap-responsive.min.css'); ?>" rel="stylesheet" type="text/css"/>
+<link href="<?php echo base_url('public/admin/assets/plugins/font-awesome/css/font-awesome.min.css'); ?>" rel="stylesheet" type="text/css"/>
+<link href="<?php echo base_url('public/admin/assets/css/style-metro.css'); ?>" rel="stylesheet" type="text/css"/>
+<link href="<?php echo base_url('public/admin/assets/css/style.css'); ?>" rel="stylesheet" type="text/css"/>
+<link href="<?php echo base_url('public/admin/assets/css/style-responsive.css'); ?>" rel="stylesheet" type="text/css"/>
+<link href="<?php echo base_url('public/admin/assets/css/themes/default.css'); ?>" rel="stylesheet" type="text/css" id="style_color"/>
+<link href="<?php echo base_url('public/admin/assets/plugins/uniform/css/uniform.default.css'); ?>" rel="stylesheet" type="text/css"/>
+<!-- END GLOBAL MANDATORY STYLES -->
+<!-- BEGIN PAGE LEVEL STYLES -->
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('public/admin/assets/plugins/select2/select2_metro.css'); ?>" />
+<link rel="stylesheet" href="<?php echo base_url('public/admin/assets/plugins/data-tables/DT_bootstrap.css'); ?>" />
+<!-- END PAGE LEVEL STYLES -->
+<link rel="shortcut icon" href="favicon.ico" />
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url('public/admin/assets/scripts/jquery.masked-input.js'); ?>"></script>
+
+<script src="<?php echo base_url('public/admin/assets/scripts/jquery-ui.js'); ?>" type="text/javascript"></script>
+<link href="<?php echo base_url('public/admin/assets/css/jquery-ui.min.css'); ?>" type="text/css" rel="stylesheet" />
+</head>
+<!-- END HEAD -->
+<!-- BEGIN BODY -->
+<body class="page-header-fixed">
+<!-- BEGIN HEADER -->   
+<?php $this->load->view('admin/segments/header');?>
+<!-- END HEADER -->
+<!-- BEGIN CONTAINER -->
+<div class="page-container row-fluid">
+<!-- BEGIN SIDEBAR -->
+<?php $this->load->view('admin/segments/sidebar');?>
+<!-- END SIDEBAR -->
+<!-- BEGIN PAGE -->
+<div class="page-content">
+<!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+<div id="portlet-config" class="modal hide">
+<div class="modal-header">
+<button data-dismiss="modal" class="close" type="button"></button>
+<h3>portlet Settings</h3>
+</div>
+<div class="modal-body">
+<p>Here will be a configuration form</p>
+</div>
+</div>
+<!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+<!-- BEGIN PAGE CONTAINER-->        
+<div class="container-fluid">
+<!-- BEGIN PAGE HEADER-->
+<div class="row-fluid">
+<div class="span12">
+<!-- BEGIN STYLE CUSTOMIZER -->
+
+<!-- END BEGIN STYLE CUSTOMIZER -->  
+<!-- BEGIN PAGE TITLE & BREADCRUMB-->
+<h3 class="page-title">
+Edit Restaurant
+</h3>
+<ul class="breadcrumb">
+<li>
+<i class="icon-home"></i>
+<a href="<?php echo base_url('admin/dashboard'); ?>">Home</a> 
+<i class="icon-angle-right"></i>
+</li>
+
+<li><a href="<?php echo base_url('admin/restaurant/manage_restaurant'); ?>">Manage Restaurants</a>
+
+</li>
+
+</ul>
+<!-- END PAGE TITLE & BREADCRUMB-->
+</div>
+</div>
+<!-- END PAGE HEADER-->
+<!-- BEGIN PAGE CONTENT-->
+
+<div class="row-fluid">
+					<div class="span12">
+						<!-- BEGIN VALIDATION STATES-->
+                        
+                         <div class="portlet-title">
+							
+							</div>
+                        
+						<div class="portlet box red">
+							<ul class="nav nav-tabs" >
+                    	       <li class="active"  id="cont_info" ><a data-toggle="tab" class="tab">Contact Info</a></li>
+                               <li id="rest_info"><a data-toggle="tab" class="tab"  >Restaurant Info</a></li>
+							   <li id="rest_photo"><a data-toggle="tab" class="tab" >Restaurant Photo</a></li>
+							   <li id="rest_ac"><a data-toggle="tab" class="tab"  >Bank A/C Info</a></li>
+							   <li id="commission"><a data-toggle="tab" class="tab"  >Commission Info</a></li>
+							   
+                            </ul>
+							</div>
+                            
+                                                  
+							<div class="portlet-body form" id="cont_tbl">
+                        <form action="<?php echo base_url('admin/restaurant/edit_restaurant/'.$getid.''); ?>" method="post" enctype="multipart/form-data" class="form-horizontal">
+									
+                                                                <div id="myDiv"><?php if(isset($error) && $error!=''){?><br /><div class="error" style="margin:10px 0px;"><div id="close" style="float:right; cursor:pointer;">X</div><?=$error?></div><?php } ?></div> <br />
+									                                   
+                                    
+										<strong><span style="margin-left:15px;">Responsible Person: </span></strong>									
+									
+                                    
+                                    
+                                    <div class="control-group">
+										<label class="control-label">Contact Name </label>
+										<div class="controls">
+											<input id="cname" class="m-wrap span4" value="<?php echo ucfirst($restaurant_name['contact_name']); ?>" type="text" name="cname"/>
+										</div>
+									</div>
+                                    
+                                    
+                                    <div class="control-group">
+										<label class="control-label">Contact Phone  Number</label>
+										<div class="controls">
+											<input id="phone" class="m-wrap span4" value="<?php echo $restaurant_name['contact_phone']; ?>" type="text" name="phone"/>
+										</div>
+									</div>                                                    
+                                    
+                                    
+                                    <div class="control-group">
+										<label class="control-label">Contact Email </label>
+										<div class="controls">
+										  <input id="email" class="m-wrap span4" value="<?php echo $restaurant_name['contact_email']; ?>" type="text" name="email"/>
+										</div>
+									</div>
+                                    
+                                    
+                                    <strong><span style="margin-left:15px;">Restaurant Information: </span></strong></span><br>
+									
+                                    
+                                    
+                                    <div class="control-group">
+										<label class="control-label">Restaurant Name<span class="required">*</span></label>
+										<div class="controls">
+											<input id="rest_name" class="m-wrap span4" value="<?php echo ucfirst($restaurant_name['restaurant_name']); ?>" type="text" name="rest_name"/>
+                                            
+										</div>
+									</div>
+                                    
+                                    
+                                     <div class="control-group">
+										<label class="control-label">Restaurant Phone Number</label>
+										<div class="controls">
+											<input id="rest_phone" class="m-wrap span4" value="<?php echo $restaurant_name['restaurant_phone']; ?>" type="text" name="rest_phone"/>
+										</div>
+									</div>
+                                    
+                                    
+                                     <div class="control-group">
+										<label class="control-label">Restaurant Website</label>
+										<div class="controls">
+											<input id="website" class="m-wrap span4" value="<?php echo $restaurant_name['website']; ?>" type="text" name="website"/>
+										</div>
+									</div>
+                                    
+                                    
+                                     <div class="control-group">
+										<label class="control-label">Restaurant Street Address</label>
+										<div class="controls">
+											<input id="address" class="m-wrap span4" value="<?php echo ucfirst($restaurant_name['address']); ?>" type="text" name="address"/>
+										</div>
+									</div>
+                                                                        
+                                
+                                <?php
+$country_name = $this->member_model->country();
+//print_r($all_country);
+?>
+									<div class="control-group">
+										<label class="control-label">Country<span class="required">*</span></label>
+										<div class="controls">
+											<select class="m-wrap span4 country" name="country" id="country">
+	
+
+	<option value="" >Country</option>
+	<?php
+//foreach($all_country as $country_all){?>
+<option <?php if($country_name['id']==160){echo 'selected="selected"';}?> value="<?php echo ucfirst($country_name['countryname']);?>"><?php echo ucfirst($country_name['countryname']);?></option>
+<?php //} ?>
+	</select>
+										</div>
+									</div>
+									<div class="control-group">
+										<label class="control-label">City<span class="required">*</span></label>
+										<div class="controls">
+											<select class="m-wrap span4 city" name="city">
+	
+
+	<option value="">City</option>
+	<?php
+	$state = $this->member_model->get_state1($country_name['id']);
+	//print_r($state);die;
+	
+	foreach ($state as $key => $pks) {
+								
+								$city = $this->member_model->get_city($pks['id']);
+								
+								foreach ($city as $key => $pks1) {?>
+								<option value='<?php echo utf8_decode($pks1['countryname']);?>' <?php if($pks1['countryname']==$restaurant_name['city']){echo 'selected="selected"';}?> ><?php echo utf8_decode($pks1['countryname']);?></option>
+								<?php
+								}
+								}
+								?>
+	</select>
+										</div>
+									</div>
+                                    									
+                                    
+                                    <div class="control-group">
+										<label class="control-label">Postcode </label>
+										<div class="controls">
+								         <input type="text" class="m-wrap span4" data-masked-input="9999-999" maxlength="8" autocomplete="off" value="<?php echo $restaurant_name['postcode']; ?>" name="postcode" id="postcode" />
+										</div>
+									</div>
+                                    
+                                    
+                                    <div class="control-group">
+										<label class="control-label">NIF</label>
+										<div class="controls">
+											<input id="nif_no" class="m-wrap span4" value="<?php echo ucfirst($restaurant_name['comp_registration_no']); ?>" type="text" name="nif_no"/>&nbsp;&nbsp;(Company Registration Number)
+										</div>
+									</div>
+                                    
+                                    
+                                    
+                                     <div class="control-group">
+										<label class="control-label">Status<span class="required">*</span></label>
+										<div class="controls">
+											<select class="m-wrap span4" name="status">
+											<option value="">--Select Status--</option>
+											<option value="1" <?php if($restaurant_name['status']==1){echo "selected"; }?>>Active</option>
+											<option value="0" <?php if($restaurant_name['status']==0){echo "selected"; }?>>Inactive</option>
+											</select>
+										</div>
+									    </div>
+                                        
+                                     	                   
+									
+									<div class="form-actions">
+										
+                               <input type="submit" name="submit" class="btn green" value="UPDATE">&nbsp;&nbsp;&nbsp;&nbsp;
+                               <a href="<?php echo base_url(); ?>admin/restaurant/manage_restaurant"><button type="button" class="btn green" id="adcms">CANCEL</button></a>
+										
+									</div>
+								</form>
+                                
+                                
+                                
+                                <form action="<?php echo base_url('admin/restaurant/send_comments/'.$getid.''); ?>" method="post" class="form-horizontal"> 
+                                
+                                <input type="hidden" value="Contact Information" name="comment_type">
+                                
+                                <div class="control-group" style="margin:345px 0px 0px 500px; width:200px; position:absolute; top:0;">
+										<label class="control-label">Comment<span class="required">*</span></label>
+										<div class="controls">
+											<textarea id="comment" class="m-wrap span3" value="<?php echo ucfirst($restaurant_name['restaurant_name']); ?>" type="text" name="comment" style="width:250px; margin-bottom:15px;"></textarea>
+                                            <br>
+                                            <p><input type="submit" name="send" class="btn green" value="Send" style="width:80px; height:30px; margin-bottom:10px;"></p>
+										</div>
+									    </div>                                        
+                                        </form>                                        
+                                
+								<!-- END FORM-->
+							</div>
+                                                       
+                            
+                            
+                            
+                            <div class="portlet-body form" id="rest_tbl" style="display:none;">
+                        <form action="<?php echo base_url('admin/restaurant/edit_restaurant_info/'.$getid.''); ?>" method="post" enctype="multipart/form-data" class="form-horizontal">
+									
+                                                                <div id="myDiv"><?php if(isset($error) && $error!=''){?><br /><div class="error" style="margin:10px 0px;"><div id="close" style="float:right; cursor:pointer;">X</div><?=$error?></div><?php } ?></div> <br />
+									                                   
+                                    
+                                    
+                                    <div class="control-group">
+										<label class="control-label">About Restaurant </label>
+										<div class="controls">
+											<textarea id="rest_about" class="m-wrap span4" type="text" name="rest_about" style="height:120px;"/><?php echo ucfirst($restaurant_name['restaurant_description']); ?></textarea>
+										</div>
+									</div>
+                                    
+                                    
+                                     <div class="control-group">
+										<label class="control-label"> </label>
+										<div class="controls span2" style="margin-top:15px;">                                        
+										<strong>Opening Time</strong>
+										</div>
+                                        <div class="controls span2" style="margin-top:15px;">                                        
+										<strong>Closing Time</strong>
+										</div>                              
+                                        
+									</div>
+                                    
+                                   <?php
+								   									
+									$dayname='Monday';
+									$timetable=$this->restaurant_model->get_timetable($dayname,$getid);
+									//print_r($timetable); die;
+									
+									$openning_time=$timetable['opening_time'];
+									$closing_time=$timetable['closing_time'];
+									
+									$res1=explode(' ',$openning_time);
+									$res2=explode(':',$res1[0]);
+									$res3=explode(' ',$closing_time);
+									$res4=explode(':',$res3[0]);
+			$open_hours=$res2[0];
+			$open_min=$res2[1];
+			$open_am_pm=$res1[1];
+			$close_hours=$res4[0];
+			$close_min=$res4[1];
+			$close_am_pm=$res3[1];
+			
+			          $status=$timetable['status'];									
+									?>
+										
+                                    
+                                    <div class="control-group">
+										<label class="control-label">Monday</label>
+										<div class="controls"> 
+										<input type="hidden" name="day[]" value="Monday">
+                                        <select class="m-wrap span1" name="open_time[]"><option value="00" selected="selected">00</option>
+                                        <?php for($i=1; $i<=12; $i++){?>
+                                  <option value="<?php if($i<=9){echo "0".$i."";}else{echo $i; }?>" <?php if($open_hours==$i){echo "selected"; }?> ><?php if($i<=9){echo "0".$i."";}else{echo $i; }?></option>
+                                        <?php } ?>
+                                        </select>									                                        
+                                        
+                                        <select class="m-wrap span1" name="open_mints[]"><option value="00" selected="selected">00</option>
+                                       <?php $i = 0; while($i < 55){$i = $i + 5; ?>
+                                     <option value="<?php if($i<=9){echo "0".$i."";}else{echo $i; }?>" <?php if($open_min==$i){echo "selected"; }?> ><?php if($i<=9){echo "0".$i."";}else{echo $i; }?></option>
+                                       <?php } ?>
+                                        </select>
+                                        
+                                        <select class="m-wrap span1" name="time_open[]" style="width:58px;">
+										<option value="am" <?php if($open_am_pm=='am'){echo "selected"; }?>>AM</option>
+                                        <option value="pm" <?php if($open_am_pm=='pm'){echo "selected"; }?> >PM</option>
+                                        </select> 
+										    &nbsp;&nbsp; 
+                                            
+                                        
+                                        <select class="m-wrap span1" name="close_time[]"><option value="00" selected="selected">00</option>

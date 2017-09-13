@@ -1,0 +1,78 @@
+@font-face {
+        font-family: "Open Sans";
+        src: url('842254639-open-sans.regular.eot');
+        src: url('842254639-open-sans.regular.eot?#iefix') format('embedded-opentype'),
+        url('842254639-open-sans.regular.svg#Open Sans') format('svg'),
+        url('842254639-open-sans.regular.woff') format('woff'),
+        url('842254639-open-sans.regular.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+
+@font-face {
+	font-family: 'Segoe UI';
+	src: url('SegoeUI.eot');
+	src: url('SegoeUI.eot?#iefix') format('embedded-opentype'),
+		url('SegoeUI.woff') format('woff'),
+		url('SegoeUI.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+/*lighter*/
+
+@font-face {
+	font-family: 'Segoe UI';
+	src: url('SegoeUI-Light.eot');
+	src: url('SegoeUI-Light.eot?#iefix') format('embedded-opentype'),
+		url('SegoeUI-Light.woff') format('woff'),
+		url('SegoeUI-Light.ttf') format('truetype');
+	font-weight: 300;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Segoe UI';
+	src: url('SegoeUI-Italic.eot');
+	src: url('SegoeUI-Italic.eot?#iefix') format('embedded-opentype'),
+		url('SegoeUI-Italic.woff') format('woff'),
+		url('SegoeUI-Italic.ttf') format('truetype');
+	font-weight: normal;
+	font-style: italic;
+}
+
+
+
+@font-face {
+	font-family: 'Segoe UI';
+	src: url('SegoeUI-BoldItalic.eot');
+	src: url('SegoeUI-BoldItalic.eot?#iefix') format('embedded-opentype'),
+		url('SegoeUI-BoldItalic.woff') format('woff'),
+		url('SegoeUI-BoldItalic.ttf') format('truetype');
+	font-weight: bold;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Segoe UI';
+	src: url('SegoeUI-SemiBold.eot');
+	src: url('SegoeUI-SemiBold.eot?#iefix') format('embedded-opentype'),
+		url('SegoeUI-SemiBold.woff') format('woff'),
+		url('SegoeUI-SemiBold.ttf') format('truetype');
+	font-weight: 600;
+	font-style: normal;
+}
+
+
+.fa5 {
+    border: 2px solid #cd0000;
+    border-radius: 60%;
+    color: #cd0000;
+    display: inline-block;
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    margin: 20% 41px;
+    padding: 10px;
+}
