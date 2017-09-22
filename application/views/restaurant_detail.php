@@ -582,6 +582,9 @@ else
 </html>
 
 <script>
+
+///////////////////////////////SCROLLLLLL
+
 $(function(){
 $(window).scroll(function(){
 //testa scroll  e define se o menu fica na tela

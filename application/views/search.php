@@ -94,6 +94,7 @@ $(document).on('mouseleave','#mycomp_msdd',function(){
 
 
 $(document).ready(function(){
+
 $(".sort").on('change',function(){
 
 //mostra icone aguardando o processo
@@ -140,6 +141,8 @@ var search_lim = "4.9";
 }
 
 
+
+
 $.ajax({ 
     type: "POST",
     url: '<?php echo base_url('search/session_search_address'); ?>', 
@@ -182,6 +185,7 @@ $.ajax({
 
 
 <script>
+
 $(document).ready(function(){
 
 
@@ -417,24 +421,27 @@ $res_num=$this->search_model->get_number_restaurentbycuisine($cuision['id'],$ses
 
 
  <!-- Div do  layout de restaurantes.-->
-<div class="col-md-3 padding_768 pc">
+<div class="col-md-3 padding_768 pc"   >
+
 
 <!--comeco div filtro posicao anterior-->
+<div class="col-md-12 " style="position:relative; padding-bottom:40px;">
 
-<div>
 
+<!--DIV para manter o projeto mapa no scroll-->
+<div class="fiz">
 
 <!-- posicao  do titulo  filtro .-->
 
 <div class="filter_head">
-<h1 style="cursor:pointer ;margin:20px 0px; , "><?php echo 'Disponivel para entrega:'?> </h1>
+<h1 style="cursor:pointer ;width:270px;height:0px;"><?php echo 'Disponivel para entrega:'?> </h1>
 <!--<h1 style="cursor:pointer ;margin:20px 0px; , "><?php echo $this->lang->line('Filter')?> </h1>-->
 </div>
 
 
 <!-- ////div do  filtro  na posicao anterior e categorias de cozinha  aqui muda e monta o fitro de distancia popularidade  rating e cozinhas etcc .-->
 
-<div style="width:280px;height:80px; background:#fafafa ; margin:20px 0px; border-radius:15px;">     
+<div style="width:270px;height:80px; background:#fafafa ; margin:20px 0px; border-radius:8px;">     
 <div class="category">
 
 
@@ -447,15 +454,43 @@ $res_num=$this->search_model->get_number_restaurentbycuisine($cuision['id'],$ses
 
 <!-- posicao do select filtro .-->
 
+
+ <?php  
+
+
+if($session_user_id['search_lim'] == '10.0')
+{ 
+$dist_rest='Todos';       
+} 
+
+if($session_user_id['search_lim'] == '0.9')
+{ 
+$dist_rest='Distancia 1Km';       
+} 
+
+if($session_user_id['search_lim'] == '1.9')
+{ 
+$dist_rest='Distancia 2Km';       
+} 
+
+
+if($session_user_id['search_lim'] == '4.9')
+{ 
+$dist_rest='Distancia 5Km';       
+} 
+
+
+?>
+
 <li>
-<select class="form-control sort sort_by" style="height:40px; margin:0px 0px" id="sort">
-<option  value="">-- <?php echo $this->lang->line('Select option');?> --</option>
+<select class="form-control sort sort_by" style="height:35px; margin:5px 0px" id="sort">
+<option  value="">-- <?php  echo  $dist_rest; // echo $this->lang->line('Select option');?> --</option>
 <!--<option value="popular"><?php echo $this->lang->line('Popularity');?></option>
 <option value="min_order"> <?php echo $this->lang->line('Minimum order value');?></option>-->
-<option value="todos"> <?php echo "Todos";?></option>
-<option value="locala"><?php echo "Distancia 1Km";?></option>
-<option value="localb"><?php echo "Distancia 2Km";?></option>
-<option value="localc"><?php echo "Distancia 5Km";?></option>
+<option value="todos"> <?php echo "--Todos--";?></option>
+<option value="locala"><?php echo "--Distancia 1Km--";?></option>
+<option value="localb"><?php echo "--Distancia 2Km--";?></option>
+<option value="localc"><?php echo "--Distancia 5Km--";?></option>
 </select>
 </li>
 
@@ -479,28 +514,25 @@ $res_num=$this->search_model->get_number_restaurentbycuisine($cuision['id'],$ses
 </div>
 
 
-
-
 <!--constroi mapa-->
 
-
-          <div class="col-md-12 padding">
-  
-  <div id="map-canvas" style="width:125%;height:300px;"></div>
-  
-          </div>
-      
-
+ <div id="map-canvas" style="width:270px;height:300px;"></div>
 
 <!--constroi mapa-->
-
 
 
 
 </div>
     
 
+<!--div Sscroll mapa-->
+</div>
+
+
 <!--fim div filtro-->
+
+
+
 
 
 
@@ -926,16 +958,22 @@ if($rat_val>=$i){?>
 
 
 var raio_dist = "<?php echo$session_user_id['search_lim'];?>";  //relacao zoom e distancia dos restaurantes
+
 var json_read =''; //define variavel para testar se json de restaurantes foi carregado
+
 
 
 
 $(function(){
 
 
+
+
+
 //$('.find-me').on('click',function(){
 
 //se input vazio usa findme, se imput com dados usa findme com esse dados
+
 //alert("<?php echo$session_user_id['search_data'];?>");
 
 
@@ -1029,7 +1067,7 @@ function show_restaurant() {
 
   map = new google.maps.Map(document.getElementById('map-canvas'), {
     center: usuario,
-    zoom: zoom_dist , minZoom: 11, maxZoom: zoom_dist,
+    zoom: zoom_dist , minZoom: 11, maxZoom: zoom_dist,disableDefaultUI: true,
   });
 
 
@@ -1048,10 +1086,6 @@ var marker_user = new google.maps.Marker({
     map: map,
     icon: icon_user
 });
-
-
-
-
 
 
 
@@ -1213,6 +1247,11 @@ google.maps.event.addListener(marker, 'mouseover', function () {
 
               }
           });
+
+
+
+
+
 
 } //fim create restaurante
 
@@ -1472,6 +1511,46 @@ $.ajax({
 
 });
 </script>
+
+
+
+
+
+<script>
+
+///////////////////////////////////////SCROLLL MAPA ////////////////////////////
+
+$(function(){
+$(window).scroll(function(){
+//testa scroll  e define se o menu fica na tela
+  var height=$(window).height();
+  var res=height-$(this).scrollTop();
+  //alert($(this).scrollTop());
+  if($(this).scrollTop()>100 ){
+  $(".fiz").addClass("scrol_fix");
+} else{
+$(".fiz").removeClass("scrol_fix"); 
+}
+if($(this).scrollTop()>=2000){
+$(".fiz").removeClass("scrol_fix"); 
+}
+});
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -1116,7 +1116,7 @@ var long =   $('.long').val();
 
 var search_rest = lat + ',' + long;
   
-var search_lim = "0.9";  
+var search_lim = '10.0';  
 
 //alert(search_data);
 
