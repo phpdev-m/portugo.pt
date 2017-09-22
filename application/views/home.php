@@ -881,8 +881,9 @@ $(function(){
             success: function(msg=true){
             // alert(msg.replace(/(\r\n|\n|\r)/gm,""));
               if(msg!=''){
-               json_read = msg.replace(/(\r\n|\n|\r)/gm,"");
-                json_read=json_read.replace(/\s+/g,'');
+                  json_read = msg.replace(/(\r\n|\n|\r)/gm);
+//               json_read = msg.replace(/(\r\n|\n|\r)/gm,"");
+//                json_read=json_read.replace(/\s+/g,'');
           //alert(json_read);
 
 

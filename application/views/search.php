@@ -605,8 +605,11 @@ $res_num=$this->search_model->get_number_restaurentbycuisine($cuision['id'],$ses
 
 
   <div class="cuisine_col">
+
   <div class="col-sm-12">  <a href="<?php echo base_url('restaurant_details'); ?>/?id=<?php echo $all_restaurant['id'];?>"><h1><?php echo $all_restaurant['restaurant_name'];?></h1></a></div>
+
   <div class="col-sm-12">
+
   <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
   <td width="100%" valign="top">
@@ -616,11 +619,7 @@ $res_num=$this->search_model->get_number_restaurentbycuisine($cuision['id'],$ses
 <div class="resbg" style="background:rgba(0, 0, 0, 0) url('<?php echo base_url();?>image_gallery/cover_photo/<?php echo $all_restaurant['cover_photo'];?>') no-repeat scroll center top / cover ;">
 
 
-
  <img src="<?php echo base_url();?>public/front/images/res_bg_mobile.png"   height="80" width="100"  />
-
-
-
 
 
   <?php
@@ -717,7 +716,7 @@ if($rat_val>=$i){?>
 
 
      //constroi restaurante
-	  if(!empty($restaurant_search)){
+if(!empty($restaurant_search)){
 
     //echo '<script type="text/javascript"> alert("inicio if ")</script>';
 
@@ -765,12 +764,18 @@ $open1 = str_replace( ' ', '', $open1);
 		   $close = $clossing[0];
 $close = str_replace( ' ', '', $close );         
 		   $close1 = $clossing[1];
-$close1 = str_replace( ' ', '', $close1 );        
+$close1 = str_replace( ' ', '', $close1 ); 
+
+//echo '<script type="text/javascript"> alert("'.  $all_restaurant['id']. '")</script>'; 
+
+$nome_rest=  str_replace(' ','',$all_restaurant['restaurant_name']);
+
+//echo '<script type="text/javascript"> alert("'.  $nome_rest. '")</script>'; 
+
 	     ?>
 	 
 
-
-      <div class="col-md-4 padding_more">
+      <div   class="col-md-4 padding_more  <?php echo $nome_rest;?>">
       <div class="restaurant_col">
        <div class="col-sm-12 padding_main">
         <a href="<?php echo base_url('restaurant_details'); ?>/?id=<?php echo $all_restaurant['id'];?>"> <div class="resbg" style="background:rgba(0, 0, 0, 0) url('<?php echo base_url();?>image_gallery/cover_photo/<?php echo $all_restaurant['cover_photo'];?>') no-repeat scroll center top / cover ;">
@@ -917,6 +922,9 @@ if($rat_val>=$i){?>
 
 <script>
 
+
+
+
 var raio_dist = "<?php echo$session_user_id['search_lim'];?>";  //relacao zoom e distancia dos restaurantes
 var json_read =''; //define variavel para testar se json de restaurantes foi carregado
 
@@ -1035,12 +1043,18 @@ var icon_user = {
 };
 
 
-var marker = new google.maps.Marker({
+var marker_user = new google.maps.Marker({
     position: usuario,
     map: map,
-    position: usuario,
     icon: icon_user
 });
+
+
+
+
+
+
+
 
 
   var Circle = new google.maps.Circle({
@@ -1069,8 +1083,9 @@ $(function(){
             success: function(msg=true){
             // alert(msg.replace(/(\r\n|\n|\r)/gm,""));
               if(msg!=''){
-               json_read = msg.replace(/(\r\n|\n|\r)/gm,"");
-               json_read=json_read.replace(/\s+/g,'');
+             json_read = msg.replace(/(\r\n|\n|\r)/gm);
+          // json_read = msg.replace(/(\r\n|\n|\r)/gm,"");
+              // json_read=json_read.replace(/\s+/g,'');
           //alert(json_read);
 
 
@@ -1080,6 +1095,21 @@ $(function(){
 user_restaurant = JSON.parse(json_read);
 
 //alert(user_restaurant.restaurant[0]['id']);
+
+           var infowindow_user = new google.maps.InfoWindow({
+                content: "Cliente"
+            });
+
+            google.maps.event.addListener(marker_user, 'mouseover', function () {
+            infowindow_user.open(map, marker_user);
+            });
+
+            google.maps.event.addListener(marker_user, 'mouseout', function () {
+            infowindow_user.close(map, marker_user);
+            });
+
+
+
 
 for (var i = 0; i < user_restaurant.restaurant.length - 1; i++) 
 {
@@ -1096,10 +1126,7 @@ for (var i = 0; i < user_restaurant.restaurant.length - 1; i++)
      create_restaurant(latlng,logo,name);
 
 }//end for
-
-
-
-             
+    
                          }   //end if msg 
                
                   }///sucess aajax
@@ -1112,7 +1139,7 @@ for (var i = 0; i < user_restaurant.restaurant.length - 1; i++)
 
 } //end function show restaurant
 
-
+var nome_temp='';
 
 function create_restaurant(latlng,logo,name) {
 
@@ -1120,7 +1147,7 @@ var icon = {
     url: "image_gallery/restaurant_logo/thumb/google/" + logo , // url
     scaledSize: new google.maps.Size(25, 25), // scaled size
     origin: new google.maps.Point(0,0), // origin
-    anchor: new google.maps.Point(0, 0) // anchor
+    anchor: new google.maps.Point(0,0) // anchor
 };
 
 //var marker = new google.maps.Marker({
@@ -1131,11 +1158,11 @@ var icon = {
 
 //insere dados nos objetos com nome e foto
 
-
-        var infowindow = new google.maps.InfoWindow();
+     
+        var infowindow = new google.maps.InfoWindow({disableAutoPan: true});
 
         var service = new google.maps.places.PlacesService(map);
-
+        
 
         service.getDetails({
 
@@ -1148,25 +1175,49 @@ var icon = {
               map: map,
               position: latlng,
               icon:icon
-           
             });
 
 
-            google.maps.event.addListener(marker, 'click', function() {
 
-               //pode modificar para retornar dados do google
 
+
+google.maps.event.addListener(marker, 'mouseover', function () {
+            //pode modificar para retornar dados do google
+
+                
+              if(nome_temp!='')
+              {
+              $('.'+nome_temp).css("opacity", 1);
+              } 
+             
+         
               infowindow.setContent('<div><strong>' + name + '</strong><br>' +
                 'Restaurante ' + name + '<br>' +
                 'Cozinha  Horario' + '</div>');
               infowindow.open(map, this);
-            });
 
+
+                var nome_rest=name.replace(/\s+/g,'');
+                //$('.'+nome_rest).hide();
+                $('.'+nome_rest).css( "opacity", 0.5);
+                nome_temp=nome_rest;
+
+             ;
+
+    });
+
+    google.maps.event.addListener(marker, 'mouseout', function () {
+        infowindow.close(map, marker);
+
+    });
 
               }
           });
 
 } //fim create restaurante
+
+
+
 
 
 
