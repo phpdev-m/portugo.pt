@@ -911,12 +911,7 @@ if($rat_val>=$i){?>
 
 
 
- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA4W0I7ncB-L-7_ngFdX2Dtn_-QzPf58z0&amp;libraries=places&drawing&callback=initAutocomplete" async defer></script>
-
-
-
-
-
+ <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA4W0I7ncB-L-7_ngFdX2Dtn_-QzPf58z0&amp;libraries=places&drawing&callback" async defer></script>
 
 
 
@@ -1139,17 +1134,16 @@ var icon = {
 
         var infowindow = new google.maps.InfoWindow();
 
-      //  var service = new google.maps.places.PlacesService(map);
+        var service = new google.maps.places.PlacesService(map);
 
 
-       // service.getDetails({
+        service.getDetails({
 
-       // placeId: 'ChIJN1t_tDeuEmsRUsoyG83frY4'
+        placeId: 'ChIJN1t_tDeuEmsRUsoyG83frY4'  // no futuro pode retornar dados do google do restaurante
 
-     //   }, function(place, status) {
-      //    if (status === google.maps.places.PlacesServiceStatus.OK) {
+        }, function(place, status) {
+          if (status === google.maps.places.PlacesServiceStatus.OK) {
            
-
             var marker = new google.maps.Marker({
               map: map,
               position: latlng,
@@ -1160,8 +1154,7 @@ var icon = {
 
             google.maps.event.addListener(marker, 'click', function() {
 
-
-  
+               //pode modificar para retornar dados do google
 
               infowindow.setContent('<div><strong>' + name + '</strong><br>' +
                 'Restaurante ' + name + '<br>' +
@@ -1170,10 +1163,8 @@ var icon = {
             });
 
 
-
-
-         // }
-       //   });
+              }
+          });
 
 } //fim create restaurante
 
