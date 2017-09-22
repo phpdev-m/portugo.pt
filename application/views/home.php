@@ -44,8 +44,7 @@ $session_user_id=$this->session->userdata('session_search_data');
 }
 </script>
 
-
- <!-- Bootstrap core CSS -->
+    <!-- Bootstrap core CSS -->
     <link href="<?php echo base_url();?>public/front/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="<?php echo base_url();?>public/front/css/font-awesome.min.css" rel="stylesheet">
@@ -53,8 +52,8 @@ $session_user_id=$this->session->userdata('session_search_data');
     <link href="<?php echo base_url();?>public/front/css/font.css" rel="stylesheet">
      <!-- ...............add................-->
     <link href="<?php echo base_url();?>public/front/css/new_css.css" rel="stylesheet">
-     <!-- ...............add................-->
-     <link href="<?php echo base_url();?>public/front/css/jquery-ui.css" rel="stylesheet">
+    <!-- ...............add................-->
+    <link href="<?php echo base_url();?>public/front/css/jquery-ui.css" rel="stylesheet">
 
     
 <?php /*?><script type="text/javascript" src="<?php echo base_url();?>public/front/js/jquery.min.js"></script><?php */?>
@@ -64,7 +63,9 @@ $session_user_id=$this->session->userdata('session_search_data');
 <script type="text/javascript" src="<?php echo base_url();?>public/front/js/bootstrap.min.js"></script>
 <!--<script src="js/scrolltopcontrol.js"></script>-->
 <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>public/front/css/dd.css" />
+
 <script type="text/javascript" src="<?php echo base_url();?>public/front/js/jquery.dd.js"></script>
+
 <script src="<?php echo base_url();?>public/front/js/jquery.geocomplete.js"></script>
 
 <script src="<?php echo base_url();?>public/front/js/logger.js"></script>
@@ -85,7 +86,7 @@ $session_user_id=$this->session->userdata('session_search_data');
             $.log("Multiple: " + results.length + " results found");
           });
 
-        $("#find").click(function(){
+          $("#find").click(function(){
           $("#geocomplete").trigger("geocode");
         });
 
@@ -96,14 +97,13 @@ $session_user_id=$this->session->userdata('session_search_data');
         });
 
       });
-    </script>-->
+</script>-->
 
 <script>
 
 $(function(){
  $(window).on('load',function(){
 	 //alert();
-
 
  $('.selected .ddlabel').hide();
  $('.selected .fnone').hide();
@@ -199,7 +199,9 @@ $('.san').show();
 	 <input type="hidden" class="long" id="long" />
      </div>
      <center><button type="button" name="submit" class="find_btn find-me" ><?php echo $this->lang->line('FIND ME');?>  <i  ><img src="<?php echo base_url();?>public/front/images/find_icon.png" style="margin:-5px 0px 0px 15px;width: 20px;" /></i></button></center>
+
     <a href="javascript:void(0);" data-target="#myModal_location_map" data-toggle="modal"  class="find-me-trigger"></a>
+    
 	<input type="submit" id="registerForm_btn" style="display:none;" />
 
 
@@ -265,8 +267,6 @@ $('.san').show();
    
     
   </div>
-
-
 
 
 
@@ -495,11 +495,17 @@ $(function(){
         
 
           }//end for
-                       
-
-      } //fim fillInAddress
 
 
+////executa find-me qdo desabilia o botao    
+if(habilita_findeme=='off')
+  {
+$('.find-me').trigger('click');
+ }            
+      
+
+
+} //fim fillInAddress
 
 </script>
 
@@ -510,26 +516,26 @@ $(function(){
 <script>
 
 
-
 var la; //coord global
 var lo;
 var json_read =''; //define variavel para testar se json de restaurantes foi carregado
 
-
+var habilita_findeme='off';
+$('.find-me').hide();
 
 
 $(function(){
 
-
 $('.find-me').on('click',function(){
-
 
 //se input vazio usa findme, se imput com dados usa findme com esse dados
 
 var geocomplete_value = $('#geocomplete').val();
 
 
- $("#city_error").hide();
+$("#city_error").hide();
+
+
 if(geocomplete_value!='')
 {
 var user_address=geocomplete_value;
@@ -563,7 +569,6 @@ if (status == google.maps.GeocoderStatus.OK) {
 //raio de 5 km origem praca marques de pombal
 
 
-
    $('.lat').val(latitude);
    $('.long').val(longitude);
 
@@ -577,8 +582,6 @@ var myLatlng = new google.maps.LatLng(latitude,longitude);   ///coordenada achad
 var geocoder = new google.maps.Geocoder();
 
 var infowindow = new google.maps.InfoWindow();
-
-
 
 
 function initialize(){
@@ -617,29 +620,24 @@ $('.address').val(address); //titulo do mapa
 
 
 
-
-
 //se input vazio calcula  localizacao pelo recurso do gps do browser  ou smart
 if(geocomplete_value=='desabilitado')
  {
 
-
 user_address='';
-geocomplete_value='';
 
+geocomplete_value='';
 
 //testa browser para localizacao
 //localiza usando  precisao  qdo disponivel no   computador ou mobile
 
 if(navigator.geolocation) {
 
-
 marker = new google.maps.Marker({
 map: map,
 position: myLatlng,
 draggable: true 
 }); 
-
 
 
 //usa coordenada aproximada com a precisao do navegador se tiver
@@ -666,8 +664,8 @@ draggable: true
         });  
 
         latitude=position.coords.latitude; 
-        longitude=position.coords.longitude; 
 
+        longitude=position.coords.longitude; 
 
 
 //teste para simular lisboa
@@ -681,7 +679,9 @@ draggable: true
 
 
    $('.lat').val(latitude);
+
    $('.long').val(longitude);
+
 
 //calcula endereco pela coord para usar no findme e criando o cep
 
@@ -792,22 +792,25 @@ else
 
 
 
+
 //////vai para tela com localizacao do usuario
 //mostra restaurantes em determinado raio
-show_restaurant();
 
+
+///testa see findem e ativo
+if(habilita_findeme=='on')
+  {
+show_restaurant();
+ }
+ 
 
 
 $('#myModal_location_map').on('show.bs.modal', function() {
-  
    //Must wait until the render of the modal appear, thats why we use the resizeMap and NOT resizingMap!! ;-)
    initialize();
-
    resizeMap();
   // selecionapt();
-
 })
-
 
 
 //////funcao search places
@@ -973,7 +976,6 @@ var icon = {
 
 
 
-
 function resizeMap() {
    if(typeof map =="undefined") return;
    setTimeout( function(){resizingMap();} , 400);
@@ -987,8 +989,15 @@ function resizingMap() {
 }
 
 
+
+///testa see findem e ativo
+if(habilita_findeme=='on')
+  {
+//abilita modal com mapa
  $('.find-me-trigger').trigger('click');
- 
+ }
+
+
 
 }
 
@@ -1056,6 +1065,7 @@ alert(msg);  //estudar retorno do servidor e verificar com google
        $('#geocomplete').val(search_data);   ////provisorio apra testar o sistema , aqui recebe o code do postcode
 
         $(".load_img").hide();
+
         $(".search-data").show();
 
 			      // 	}	//sucesse
@@ -1088,7 +1098,8 @@ $(function(){
 $('.search-data').on('click',function(){
 
 
-//var search_data = $('#geocomplete').val();
+
+var search_data = $('#geocomplete').val();
 
 //dados armazenados no hidden text depois de autocompletar ou digitar o cep
 
@@ -1102,13 +1113,9 @@ var lat =   $('.lat').val();
 var long =   $('.long').val();
 
 
-
-//aguardar retorno do get_postcode poie esta com problema no googgle
-var search_data = $('#geocomplete').val();
-
 var search_rest = lat + ',' + long;
   
-var search_lim = "1.4";  
+var search_lim = "0.9";  
 
 //alert(search_data);
 
@@ -1119,6 +1126,7 @@ alert(search_lim);
 alert(search_data);
 alert(search_rest);
 */
+
 
 
 // $('#geocomplete').vrest

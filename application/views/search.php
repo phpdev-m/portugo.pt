@@ -12,12 +12,17 @@ require_once(APPPATH.'libraries/config.php');
 $session_user_id=$this->session->userdata('session_search_data');
 
 /*
-print_r($session_user_id['search_data']); ;
+print_r($session_user_id['search_data']); 
 echo "<pre>";
-print_r($session_user_id['search_rest']); ;
+print_r($session_user_id['search_rest']); 
 echo "<pre>";
-print_r($session_user_id['search_dist']); die;
+print_r($session_user_id['search_dist']); 
+echo "<pre>";
+print_r($session_user_id['search_lim']); 
+
+die;
 */
+//echo '<script type="text/javascript"> alert("'. "valor total da ordem antes stripe server: " . $final_amount. '")</script>';
 
 ?> 
  <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -45,6 +50,16 @@ print_r($session_user_id['search_dist']); die;
 <!--<script src="js/scrolltopcontrol.js"></script>-->
 <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>public/front/css/dd.css" />
 <script type="text/javascript" src="<?php echo base_url();?>public/front/js/jquery.dd.js"></script>
+
+
+
+
+
+<!--google api>-->
+<script src="<?php echo base_url();?>public/front/js/jquery.geocomplete.js"></script>
+<script src="<?php echo base_url();?>public/front/js/logger.js"></script>
+
+
  
 <script>
 $(function(){
@@ -76,10 +91,10 @@ $(document).on('mouseleave','#mycomp_msdd',function(){
 
 
 <script>
+
+
 $(document).ready(function(){
 $(".sort").on('change',function(){
-
-
 
 //mostra icone aguardando o processo
 
@@ -92,7 +107,6 @@ $(".right_pan").html('<img src="<?php  echo base_url('public/front/images/ajax-l
 var sort_by=$(".sort_by").val();
 var cuisine_id=$("#cuisine_id").val();
 var rating=$("#rating").val();
-
 
 
 //executa teste de disatncia na pagina
@@ -311,6 +325,8 @@ $('.san').show();
 <li>
 <form id="registerForm"   class="form-horizontal" >
 
+
+
 <select class="form-control sort1 sort_by1" style="height:40px; margin:20px 0px" id="sort">
 <option value="">-- <?php echo $this->lang->line('Select option');?> --</option>
 <option value="popular"><?php echo $this->lang->line('Popularity');?></option>
@@ -384,7 +400,6 @@ $res_num=$this->search_model->get_number_restaurentbycuisine($cuision['id'],$ses
 ?>
 
 
-
 <li><a href="javascript:void(0);"  class="cuisine" id="cuisine<?php echo $cuision['id']; ?>"> <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i>&nbsp; <?php echo ucfirst($cuision['cuisine_name']);?> <span style="float:right"><?php echo $res_num; ?></span></a></li>
 
   <?php 
@@ -399,10 +414,10 @@ $res_num=$this->search_model->get_number_restaurentbycuisine($cuision['id'],$ses
 	 </div>
      </div>
 	  
+
+
  <!-- Div do  layout de restaurantes.-->
 <div class="col-md-3 padding_768 pc">
-
-
 
 <!--comeco div filtro posicao anterior-->
 
@@ -419,7 +434,7 @@ $res_num=$this->search_model->get_number_restaurentbycuisine($cuision['id'],$ses
 
 <!-- ////div do  filtro  na posicao anterior e categorias de cozinha  aqui muda e monta o fitro de distancia popularidade  rating e cozinhas etcc .-->
 
-<div style="width:250px; background:#fafafa ; margin:20px 0px; border-radius:5px;">     
+<div style="width:280px;height:80px; background:#fafafa ; margin:20px 0px; border-radius:15px;">     
 <div class="category">
 
 
@@ -433,7 +448,7 @@ $res_num=$this->search_model->get_number_restaurentbycuisine($cuision['id'],$ses
 <!-- posicao do select filtro .-->
 
 <li>
-<select class="form-control sort sort_by" style="height:40px; margin:20px 0px" id="sort">
+<select class="form-control sort sort_by" style="height:40px; margin:0px 0px" id="sort">
 <option  value="">-- <?php echo $this->lang->line('Select option');?> --</option>
 <!--<option value="popular"><?php echo $this->lang->line('Popularity');?></option>
 <option value="min_order"> <?php echo $this->lang->line('Minimum order value');?></option>-->
@@ -462,6 +477,26 @@ $res_num=$this->search_model->get_number_restaurentbycuisine($cuision['id'],$ses
 
 </div>
 </div>
+
+
+
+
+<!--constroi mapa-->
+
+
+          <div class="col-md-12 padding">
+  
+  <div id="map-canvas" style="width:125%;height:300px;"></div>
+  
+          </div>
+      
+
+
+<!--constroi mapa-->
+
+
+
+
 </div>
     
 
@@ -545,7 +580,8 @@ $res_num=$this->search_model->get_number_restaurentbycuisine($cuision['id'],$ses
 	 <center><p style="margin-top:100px; display:none;" id="loader"><img src="<?php echo base_url();?>public/front/images/loader.gif" /></p></center>
 	 
 	 	 
-	 
+
+
     <div class="right_pan mobile">
 
 
@@ -657,6 +693,10 @@ if($rat_val>=$i){?>
        </div>
 
 
+
+
+
+
 	  <?php
 
 /////////////////////////////fim do if para filtro e finaliza montagem do menu cozinha
@@ -667,6 +707,10 @@ if($rat_val>=$i){?>
     </div>
 	 	 
 	 <div class="right_pan pc" style="min-height:350px;">
+
+
+
+
         
 	 <?php 
 
@@ -850,9 +894,332 @@ if($rat_val>=$i){?>
   
  <?php $this->load->view('segment/footer');?>
  
+
  
 </body>
 </html>
+
+
+
+
+
+
+<!--
+//////////////////////////////////define mapa 
+-->
+
+
+
+
+ <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA4W0I7ncB-L-7_ngFdX2Dtn_-QzPf58z0&amp;libraries=places&drawing&callback=initAutocomplete" async defer></script>
+
+
+
+
+
+
+
+
+<script>
+
+var raio_dist = "<?php echo$session_user_id['search_lim'];?>";  //relacao zoom e distancia dos restaurantes
+var json_read =''; //define variavel para testar se json de restaurantes foi carregado
+
+
+
+$(function(){
+
+
+//$('.find-me').on('click',function(){
+
+//se input vazio usa findme, se imput com dados usa findme com esse dados
+//alert("<?php echo$session_user_id['search_data'];?>");
+
+
+var geocomplete_value = "<?php echo$session_user_id['search_data'];?>";  //nome da rua
+
+
+var user_address=geocomplete_value; 
+
+
+var geocoder = new google.maps.Geocoder();
+
+
+var address = user_address;
+
+
+geocoder.geocode( { 'address': address}, function(results, status) {
+
+
+
+if (status == google.maps.GeocoderStatus.OK) {
+
+
+//usa coordenada aproximada
+
+    var latitude = results[0].geometry.location.lat();
+    var longitude = results[0].geometry.location.lng();
+
+
+
+var map;
+var marker;
+
+var myLatlng = new google.maps.LatLng(latitude,longitude);   ///coordenada achada se digita endereco no teclado 
+
+
+var geocoder = new google.maps.Geocoder();
+
+var infowindow = new google.maps.InfoWindow();
+
+
+
+
+//////vai para tela com localizacao do usuario
+//mostra restaurantes em determinado raio
+
+show_restaurant();
+
+resizeMap();
+
+
+//////funcao search places
+
+function show_restaurant() {
+
+
+//var mapOptions = {
+//zoom: 13,
+//center: usuario,  //coordenada do inico da sessao
+//mapTypeId: google.maps.MapTypeId.ROADMAP
+//};
+
+//map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+
+///cria marker usuario no map e define mapa
+  var  usuario = {lat: latitude, lng: longitude};
+
+   if (raio_dist==0.9)
+   {
+   dist=950;
+   zoom_dist=14;
+   }
+
+   if (raio_dist==1.9)
+   {
+   dist=1950;
+   zoom_dist=13;
+   }
+
+   if (raio_dist==4.9)
+   {
+   dist=4950; 
+   zoom_dist=12;
+   }
+
+   if (raio_dist==10)
+   {
+   dist=5050; 
+   zoom_dist=12;
+   }
+
+
+  map = new google.maps.Map(document.getElementById('map-canvas'), {
+    center: usuario,
+    zoom: zoom_dist , minZoom: 11, maxZoom: zoom_dist,
+  });
+
+
+
+var raio = dist;
+var icon_user = {
+    url: "public/images/favicon1.png", // url
+    scaledSize: new google.maps.Size(25, 25), // scaled size
+    origin: new google.maps.Point(0,0), // origin
+    anchor: new google.maps.Point(0, 0) // anchor
+};
+
+
+var marker = new google.maps.Marker({
+    position: usuario,
+    map: map,
+    position: usuario,
+    icon: icon_user
+});
+
+
+  var Circle = new google.maps.Circle({
+      strokeColor: '#FF0000',
+     strokeOpacity: 0.2,
+      strokeWeight: 2,
+     fillColor: '#FF0000',
+     fillOpacity: 0.1,
+     map: map,
+     center: map.center,
+     radius: parseFloat(raio)
+    });
+
+
+
+
+
+$(function(){
+
+            var search_data="";
+
+            $.ajax({
+            type: "POST",
+            url: "<?php echo base_url();?>search/cria_rest",
+            data: { search_data:search_data},
+            success: function(msg=true){
+            // alert(msg.replace(/(\r\n|\n|\r)/gm,""));
+              if(msg!=''){
+               json_read = msg.replace(/(\r\n|\n|\r)/gm,"");
+               json_read=json_read.replace(/\s+/g,'');
+          //alert(json_read);
+
+
+
+//usa lista json para plotar restaurantes / estudo par usar session 
+
+user_restaurant = JSON.parse(json_read);
+
+//alert(user_restaurant.restaurant[0]['id']);
+
+for (var i = 0; i < user_restaurant.restaurant.length - 1; i++) 
+{
+     var counter = user_restaurant.restaurant[i];
+    // alert(counter.logo);
+
+     var logo = "logo_google.png";  //counter.logo;
+
+     var name =   counter.name;
+    //format lat long do usuario para usar na pesquisa e criar restaurantes na tela
+
+     var latlng = new google.maps.LatLng( counter.lat,counter.lng ); 
+
+     create_restaurant(latlng,logo,name);
+
+}//end for
+
+
+
+             
+                         }   //end if msg 
+               
+                  }///sucess aajax
+              });  //ajax
+
+
+
+});
+
+
+} //end function show restaurant
+
+
+
+function create_restaurant(latlng,logo,name) {
+
+var icon = {
+    url: "image_gallery/restaurant_logo/thumb/google/" + logo , // url
+    scaledSize: new google.maps.Size(25, 25), // scaled size
+    origin: new google.maps.Point(0,0), // origin
+    anchor: new google.maps.Point(0, 0) // anchor
+};
+
+//var marker = new google.maps.Marker({
+ //   map: map,
+  //  position:latlng,
+   // icon: icon
+//});
+
+//insere dados nos objetos com nome e foto
+
+
+        var infowindow = new google.maps.InfoWindow();
+
+      //  var service = new google.maps.places.PlacesService(map);
+
+
+       // service.getDetails({
+
+       // placeId: 'ChIJN1t_tDeuEmsRUsoyG83frY4'
+
+     //   }, function(place, status) {
+      //    if (status === google.maps.places.PlacesServiceStatus.OK) {
+           
+
+            var marker = new google.maps.Marker({
+              map: map,
+              position: latlng,
+              icon:icon
+           
+            });
+
+
+            google.maps.event.addListener(marker, 'click', function() {
+
+
+  
+
+              infowindow.setContent('<div><strong>' + name + '</strong><br>' +
+                'Restaurante ' + name + '<br>' +
+                'Cozinha  Horario' + '</div>');
+              infowindow.open(map, this);
+            });
+
+
+
+
+         // }
+       //   });
+
+} //fim create restaurante
+
+
+
+function resizeMap() {
+   if(typeof map =="undefined") return;
+   setTimeout( function(){resizingMap();} , 400);
+}
+
+function resizingMap() {
+   if(typeof map =="undefined") return;
+   var center = map.getCenter();
+   google.maps.event.trigger(map, "resize");
+   map.setCenter(center);
+}
+
+
+
+
+
+}
+
+
+
+
+});
+
+
+//});  //fim findme click button
+
+
+  });  //fim function
+
+//////fim do findme
+
+
+</script>
+
+
+<!--
+//////////////////////////////////define mapa 
+-->
+
+
+
 
 
 <script>

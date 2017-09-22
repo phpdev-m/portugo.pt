@@ -143,6 +143,13 @@ Edit Restaurant
 										  <input id="email" class="m-wrap span4" value="<?php echo $restaurant_name['contact_email']; ?>" type="text" name="email"/>
 										</div>
 									</div>
+
+									<div class="control-group">
+										<label class="control-label">Password </label>
+										<div class="controls">
+										  <input id="password" class="m-wrap span4" value="<?php echo $restaurant_name['password']; ?>" type="text" name="password"/>
+										</div>
+									</div>
                                     
                                     
                                     <strong><span style="margin-left:15px;">Restaurant Information: </span></strong></span><br>
@@ -158,12 +165,11 @@ Edit Restaurant
 									</div>
 
                                     <div class="control-group">
-                                                                                <label class="control-label">Restaurant Local Name<span class="required">*</span></label>
-                                                                                <div class="controls">
-                                                                                        <input id="rest_sub_name" class="m-wrap span4" value="<?php echo ucfirst($restaurant_name['restaurant_sub_name']); ?>" type="text" name="rest_sub_name"/>
-                                            
-                                                                                </div>
-                                                                        </div>
+                                         <label class="control-label">Restaurant Local Name<span class="required">*</span></label>
+                                         <div class="controls">
+                                          <input id="rest_sub_name" class="m-wrap span4" value="<?php echo ucfirst($restaurant_name['restaurant_sub_name']); ?>" type="text" name="rest_sub_name"/>
+                                            </div>
+                                            </div>
 
                                     
                                     

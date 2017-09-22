@@ -279,7 +279,7 @@ echo "<pre>";
 
   $search_dist =  $this->restaurant_search_distance( $_POST['search_rest'],$_POST['search_lim']);  //lista distancia
   
-	$sess_array = array('search_data' => $search_data,'search_rest' => $search_rest ,'search_dist' => $search_dist);
+	$sess_array = array('search_data' => $search_data,'search_rest' => $search_rest ,'search_dist' => $search_dist,'search_lim' => $search_lim);
 
 	$this->session->set_userdata('session_search_data', $sess_array);
 

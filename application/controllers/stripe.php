@@ -5,7 +5,7 @@
 
 
 //include('C:Apache24/htdocs/portugo.pt/system/libraries/Stripe/init.php');  //usa localserver
-require_once('./application/views/order/config.php');   s //usa site 
+require_once('./application/views/order/config.php');    //usa site 
 
 
 defined('BASEPATH') OR exit('No direct script access allowed');
